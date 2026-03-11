@@ -516,9 +516,7 @@
       margin-bottom: 2.5rem;
     }
 
-    .carousel-wrapper {
-      position: relative;
-    }
+    .carousel-wrapper { position: relative; }
 
     .carousel-track-outer {
       overflow: hidden;
@@ -550,7 +548,6 @@
       box-shadow: 0 20px 50px rgba(92, 61, 46, 0.18);
     }
 
-    /* Each slide has a placeholder gradient — replace with your own <img> tags */
     .carousel-slide img {
       width: 100%;
       height: 100%;
@@ -558,7 +555,6 @@
       display: block;
     }
 
-    /* Placeholder styling for when no image is present */
     .slide-placeholder {
       width: 100%;
       height: 100%;
@@ -571,10 +567,7 @@
       text-align: center;
     }
 
-    .slide-placeholder-icon {
-      font-size: 3rem;
-      opacity: 0.4;
-    }
+    .slide-placeholder-icon { font-size: 3rem; opacity: 0.4; }
 
     .slide-placeholder-text {
       font-family: 'Cormorant Garamond', serif;
@@ -610,7 +603,6 @@
       margin-top: 0.2rem;
     }
 
-    /* Gradient fade on edges */
     .carousel-wrapper::before,
     .carousel-wrapper::after {
       content: '';
@@ -620,16 +612,9 @@
       z-index: 2;
       pointer-events: none;
     }
-    .carousel-wrapper::before {
-      left: 0;
-      background: linear-gradient(to right, var(--cream), transparent);
-    }
-    .carousel-wrapper::after {
-      right: 0;
-      background: linear-gradient(to left, var(--cream), transparent);
-    }
+    .carousel-wrapper::before { left: 0; background: linear-gradient(to right, var(--cream), transparent); }
+    .carousel-wrapper::after  { right: 0; background: linear-gradient(to left, var(--cream), transparent); }
 
-    /* Nav buttons */
     .carousel-nav {
       display: flex;
       align-items: center;
@@ -661,11 +646,7 @@
 
     .carousel-btn svg { width: 18px; height: 18px; }
 
-    .carousel-dots {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
+    .carousel-dots { display: flex; gap: 0.5rem; align-items: center; }
 
     .carousel-dot {
       width: 6px; height: 6px;
@@ -674,6 +655,7 @@
       opacity: 0.3;
       cursor: pointer;
       transition: all 0.3s;
+      border: none;
     }
 
     .carousel-dot.active {
@@ -684,11 +666,7 @@
     }
 
     /* ── PROCESS ── */
-    #process {
-      background: var(--blush);
-      text-align: center;
-    }
-
+    #process { background: var(--blush); text-align: center; }
     #process .section-eyebrow { justify-content: center; }
     #process .section-eyebrow::before { display: none; }
     #process h2 { text-align: center; }
@@ -704,9 +682,7 @@
     .steps-grid::before {
       content: '';
       position: absolute;
-      top: 28px;
-      left: 12%;
-      right: 12%;
+      top: 28px; left: 12%; right: 12%;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--rose), var(--rose), transparent);
     }
@@ -735,22 +711,11 @@
       z-index: 1;
     }
 
-    .step h4 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      color: var(--dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .step p { font-size: 0.83rem; color: var(--brown); line-height: 1.6; }
+    .step h4 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--dark); margin-bottom: 0.5rem; }
+    .step p  { font-size: 0.83rem; color: var(--brown); line-height: 1.6; }
 
     /* ── CONTACT ── */
-    #contact {
-      background: var(--dark);
-      text-align: center;
-      padding: 6rem 4rem;
-    }
-
+    #contact { background: var(--dark); text-align: center; padding: 6rem 4rem; }
     #contact h2 { color: var(--cream); text-align: center; }
     #contact h2 em { color: var(--rose); }
     #contact .section-eyebrow { color: var(--rose); justify-content: center; }
@@ -776,10 +741,7 @@
       transition: all 0.3s;
       color: inherit;
     }
-    .contact-card:hover {
-      background: rgba(250, 245, 239, 0.12);
-      transform: translateY(-3px);
-    }
+    .contact-card:hover { background: rgba(250, 245, 239, 0.12); transform: translateY(-3px); }
 
     .contact-card-icon {
       margin: 0 auto 0.8rem;
@@ -806,7 +768,7 @@
       line-height: 1.5;
     }
 
-    /* Google Reviews Card — special gold accent */
+    /* Google Reviews Card */
     .contact-card.google-reviews-card {
       border-color: rgba(201, 169, 110, 0.3);
       background: rgba(201, 169, 110, 0.07);
@@ -824,27 +786,12 @@
       background: rgba(201, 169, 110, 0.13);
       border-color: rgba(201, 169, 110, 0.5);
     }
-    .contact-card.google-reviews-card .contact-card-label {
-      color: var(--gold);
-    }
+    .contact-card.google-reviews-card .contact-card-label { color: var(--gold); }
 
-    .google-stars {
-      display: flex;
-      justify-content: center;
-      gap: 3px;
-      margin-top: 0.4rem;
-    }
-    .google-stars svg {
-      width: 16px; height: 16px;
-      fill: #FBBC05;
-    }
+    .google-stars { display: flex; justify-content: center; gap: 3px; margin-top: 0.4rem; }
+    .google-stars svg { width: 16px; height: 16px; fill: #FBBC05; }
 
-    .cta-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    .cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
     .cta-whatsapp {
       display: inline-flex;
@@ -894,10 +841,7 @@
       transition: all 0.3s;
       box-shadow: 0 2px 12px rgba(0,0,0,0.15);
     }
-    .cta-google-reviews:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
+    .cta-google-reviews:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
     .cta-google-reviews svg { width: 18px; height: 18px; flex-shrink: 0; }
 
     /* ── FOOTER ── */
@@ -917,27 +861,13 @@
       text-align: left;
     }
 
-    .footer-social {
-      display: flex;
-      gap: 1.2rem;
-      align-items: center;
-    }
-
-    .footer-social a {
-      color: rgba(250, 245, 239, 0.4);
-      transition: color 0.3s;
-      display: flex;
-      align-items: center;
-    }
+    .footer-social { display: flex; gap: 1.2rem; align-items: center; }
+    .footer-social a { color: rgba(250, 245, 239, 0.4); transition: color 0.3s; display: flex; align-items: center; }
     .footer-social a:hover { color: var(--rose); }
     .footer-social svg { width: 18px; height: 18px; }
 
     /* ── SCROLL ANIMATIONS ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ── */
@@ -945,22 +875,9 @@
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
 
-      #hero {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        padding: 6rem 1.5rem 3rem;
-        gap: 2rem;
-      }
-
+      #hero { grid-template-columns: 1fr; grid-template-rows: auto auto auto; padding: 6rem 1.5rem 3rem; gap: 2rem; }
       .hero-brand { margin-bottom: 1.8rem; }
-
-      .hero-visual {
-        order: 3;
-        padding-top: 0;
-        padding-right: 0;
-        justify-content: center;
-      }
-
+      .hero-visual { order: 3; padding-top: 0; padding-right: 0; justify-content: center; }
       .hero-card { max-width: 100%; }
 
       section { padding: 4rem 1.5rem; }
@@ -973,14 +890,8 @@
       .carousel-track { padding: 0 1.5rem; }
       .carousel-slide { flex: 0 0 260px; }
 
-      footer {
-        flex-direction: column;
-        gap: 0.8rem;
-        text-align: center;
-        padding: 2rem 1.5rem;
-      }
+      footer { flex-direction: column; gap: 0.8rem; text-align: center; padding: 2rem 1.5rem; }
       .footer-center { text-align: center; }
-
       #contact { padding: 4rem 1.5rem; }
     }
 
@@ -1152,10 +1063,7 @@
         <div class="menu-item"><div class="menu-item-name">Cookies &amp; Cream</div><div class="menu-item-footer"><span class="menu-price">&#8377;650</span></div></div>
         <div class="menu-item"><div class="menu-item-name">Caf&eacute; Mocha</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span></div></div>
       </div>
-
-      <div class="menu-note">
-        Prices are starting prices and may vary with customisation. Custom designs, tiers, and special themes available on request.
-      </div>
+      <div class="menu-note">Prices are starting prices and may vary with customisation. Custom designs, tiers, and special themes available on request.</div>
     </div>
 
     <!-- Cookies -->
@@ -1167,14 +1075,9 @@
         <div class="menu-item"><div class="menu-item-name">Date &amp; Almond Biscuits</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">500g</span></div></div>
         <div class="menu-item"><div class="menu-item-name">Jeera / Salt / Masala Biscuits</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span><span class="menu-weight">500g</span></div></div>
       </div>
-
       <div class="menu-category-header">Chonky Cookies &mdash; Soft &middot; Chewy &middot; Indulgent</div>
       <div class="menu-grid">
-        <div class="menu-item">
-          <div class="bestseller-tag">Best Seller</div>
-          <div class="menu-item-name">Chocolate Chunk &amp; Sea Salt</div>
-          <div class="menu-item-footer"><span class="menu-price">&#8377;400</span><span class="menu-weight">300g</span></div>
-        </div>
+        <div class="menu-item"><div class="bestseller-tag">Best Seller</div><div class="menu-item-name">Chocolate Chunk &amp; Sea Salt</div><div class="menu-item-footer"><span class="menu-price">&#8377;400</span><span class="menu-weight">300g</span></div></div>
         <div class="menu-item"><div class="menu-item-name">Double Chocolate</div><div class="menu-item-footer"><span class="menu-price">&#8377;450</span><span class="menu-weight">300g</span></div></div>
         <div class="menu-item"><div class="menu-item-name">Brookies</div><div class="menu-item-desc">Brownie + Cookie &mdash; the best of both worlds</div><div class="menu-item-footer"><span class="menu-price">&#8377;450</span><span class="menu-weight">300g</span></div></div>
         <div class="menu-item"><div class="menu-item-name">Lotus Biscoff Cookies</div><div class="menu-item-footer"><span class="menu-price">&#8377;500</span><span class="menu-weight">300g</span></div></div>
@@ -1221,14 +1124,9 @@
         <div class="menu-item"><div class="menu-item-name">Nutella Cheesecake</div><div class="menu-item-footer"><span class="menu-price">&#8377;950</span><span class="menu-weight">500g</span></div></div>
         <div class="menu-item"><div class="menu-item-name">Biscoff Cheesecake</div><div class="menu-item-footer"><span class="menu-price">&#8377;950</span><span class="menu-weight">500g</span></div></div>
       </div>
-
       <div class="menu-category-header">Brownies</div>
       <div class="menu-grid">
-        <div class="menu-item">
-          <div class="menu-item-name">Signature Brownies</div>
-          <div class="menu-item-desc">Fudgy, dense, and utterly irresistible</div>
-          <div class="menu-item-footer"><span class="menu-price">&#8377;600</span><span class="menu-weight">4 pcs &middot; 350g</span></div>
-        </div>
+        <div class="menu-item"><div class="menu-item-name">Signature Brownies</div><div class="menu-item-desc">Fudgy, dense, and utterly irresistible</div><div class="menu-item-footer"><span class="menu-price">&#8377;600</span><span class="menu-weight">4 pcs &middot; 350g</span></div></div>
       </div>
     </div>
 
@@ -1251,7 +1149,7 @@
        Replace the <div class="slide-placeholder">…</div>
        inside each .carousel-slide with:
          <img src="your-photo.jpg" alt="Description">
-       You can also add/remove .carousel-slide blocks.
+       You can also add/remove .carousel-slide blocks freely.
   ════════════════════════════════════════════ -->
   <section id="gallery">
     <div class="gallery-header reveal">
@@ -1264,104 +1162,48 @@
       <div class="carousel-track-outer">
         <div class="carousel-track" id="carouselTrack">
 
-          <!-- ── SLIDE 1 ── Replace placeholder with your photo -->
           <div class="carousel-slide" style="background: linear-gradient(135deg, #e8c9bc 0%, #d4a090 100%);">
-            <div class="slide-placeholder">
-              <div class="slide-placeholder-icon">🎂</div>
-              <div class="slide-placeholder-text">Add your<br>Celebration Cake photo here</div>
-            </div>
-            <div class="slide-overlay">
-              <div class="slide-overlay-name">Celebration Cakes</div>
-              <div class="slide-overlay-tag">Made to order</div>
-            </div>
+            <div class="slide-placeholder"><div class="slide-placeholder-icon">🎂</div><div class="slide-placeholder-text">Add your<br>Celebration Cake photo here</div></div>
+            <div class="slide-overlay"><div class="slide-overlay-name">Celebration Cakes</div><div class="slide-overlay-tag">Made to order</div></div>
           </div>
 
-          <!-- ── SLIDE 2 ── -->
           <div class="carousel-slide" style="background: linear-gradient(135deg, #c9b99a 0%, #a8896c 100%);">
-            <div class="slide-placeholder">
-              <div class="slide-placeholder-icon">🍪</div>
-              <div class="slide-placeholder-text">Add your<br>Chonky Cookies photo here</div>
-            </div>
-            <div class="slide-overlay">
-              <div class="slide-overlay-name">Chonky Cookies</div>
-              <div class="slide-overlay-tag">Soft &middot; Chewy &middot; Indulgent</div>
-            </div>
+            <div class="slide-placeholder"><div class="slide-placeholder-icon">🍪</div><div class="slide-placeholder-text">Add your<br>Chonky Cookies photo here</div></div>
+            <div class="slide-overlay"><div class="slide-overlay-name">Chonky Cookies</div><div class="slide-overlay-tag">Soft &middot; Chewy &middot; Indulgent</div></div>
           </div>
 
-          <!-- ── SLIDE 3 ── -->
           <div class="carousel-slide" style="background: linear-gradient(135deg, #b5c9d4 0%, #7ea3b8 100%);">
-            <div class="slide-placeholder">
-              <div class="slide-placeholder-icon">🍰</div>
-              <div class="slide-placeholder-text">Add your<br>Tiramisu photo here</div>
-            </div>
-            <div class="slide-overlay">
-              <div class="slide-overlay-name">Tiramisu Cake</div>
-              <div class="slide-overlay-tag">Signature flavour</div>
-            </div>
+            <div class="slide-placeholder"><div class="slide-placeholder-icon">🍰</div><div class="slide-placeholder-text">Add your<br>Tiramisu photo here</div></div>
+            <div class="slide-overlay"><div class="slide-overlay-name">Tiramisu Cake</div><div class="slide-overlay-tag">Signature flavour</div></div>
           </div>
 
-          <!-- ── SLIDE 4 ── -->
           <div class="carousel-slide" style="background: linear-gradient(135deg, #d4c9e8 0%, #a890cc 100%);">
-            <div class="slide-placeholder">
-              <div class="slide-placeholder-icon">🫐</div>
-              <div class="slide-placeholder-text">Add your<br>Blueberry Cheesecake photo here</div>
-            </div>
-            <div class="slide-overlay">
-              <div class="slide-overlay-name">Blueberry Cheesecake</div>
-              <div class="slide-overlay-tag">Chef's pick</div>
-            </div>
+            <div class="slide-placeholder"><div class="slide-placeholder-icon">🫐</div><div class="slide-placeholder-text">Add your<br>Blueberry Cheesecake photo here</div></div>
+            <div class="slide-overlay"><div class="slide-overlay-name">Blueberry Cheesecake</div><div class="slide-overlay-tag">Chef's pick</div></div>
           </div>
 
-          <!-- ── SLIDE 5 ── -->
           <div class="carousel-slide" style="background: linear-gradient(135deg, #d4e8c9 0%, #90cc88 100%);">
-            <div class="slide-placeholder">
-              <div class="slide-placeholder-icon">🧄</div>
-              <div class="slide-placeholder-text">Add your<br>Korean Garlic Buns photo here</div>
-            </div>
-            <div class="slide-overlay">
-              <div class="slide-overlay-name">Korean Garlic Buns</div>
-              <div class="slide-overlay-tag">Savoury bakes</div>
-            </div>
+            <div class="slide-placeholder"><div class="slide-placeholder-icon">🧄</div><div class="slide-placeholder-text">Add your<br>Korean Garlic Buns photo here</div></div>
+            <div class="slide-overlay"><div class="slide-overlay-name">Korean Garlic Buns</div><div class="slide-overlay-tag">Savoury bakes</div></div>
           </div>
 
-          <!-- ── SLIDE 6 ── -->
           <div class="carousel-slide" style="background: linear-gradient(135deg, #e8d4c9 0%, #cc9880 100%);">
-            <div class="slide-placeholder">
-              <div class="slide-placeholder-icon">🍫</div>
-              <div class="slide-placeholder-text">Add your<br>Brownies photo here</div>
-            </div>
-            <div class="slide-overlay">
-              <div class="slide-overlay-name">Signature Brownies</div>
-              <div class="slide-overlay-tag">Fudgy &middot; Dense &middot; Irresistible</div>
-            </div>
+            <div class="slide-placeholder"><div class="slide-placeholder-icon">🍫</div><div class="slide-placeholder-text">Add your<br>Brownies photo here</div></div>
+            <div class="slide-overlay"><div class="slide-overlay-name">Signature Brownies</div><div class="slide-overlay-tag">Fudgy &middot; Dense &middot; Irresistible</div></div>
           </div>
 
-          <!-- ── SLIDE 7 ── -->
           <div class="carousel-slide" style="background: linear-gradient(135deg, #e8e4c9 0%, #ccc480 100%);">
-            <div class="slide-placeholder">
-              <div class="slide-placeholder-icon">🥧</div>
-              <div class="slide-placeholder-text">Add your<br>Tarts photo here</div>
-            </div>
-            <div class="slide-overlay">
-              <div class="slide-overlay-name">Party Tarts</div>
-              <div class="slide-overlay-tag">Party desserts</div>
-            </div>
+            <div class="slide-placeholder"><div class="slide-placeholder-icon">🥧</div><div class="slide-placeholder-text">Add your<br>Tarts photo here</div></div>
+            <div class="slide-overlay"><div class="slide-overlay-name">Party Tarts</div><div class="slide-overlay-tag">Party desserts</div></div>
           </div>
 
-          <!-- ── SLIDE 8 ── -->
           <div class="carousel-slide" style="background: linear-gradient(135deg, #e4c9d4 0%, #c88099 100%);">
-            <div class="slide-placeholder">
-              <div class="slide-placeholder-icon">🍮</div>
-              <div class="slide-placeholder-text">Add your<br>Kunafa Cake photo here</div>
-            </div>
-            <div class="slide-overlay">
-              <div class="slide-overlay-name">Kunafa Cake</div>
-              <div class="slide-overlay-tag">With OG Chocolate</div>
-            </div>
+            <div class="slide-placeholder"><div class="slide-placeholder-icon">🍮</div><div class="slide-placeholder-text">Add your<br>Kunafa Cake photo here</div></div>
+            <div class="slide-overlay"><div class="slide-overlay-name">Kunafa Cake</div><div class="slide-overlay-tag">With OG Chocolate</div></div>
           </div>
 
-        </div><!-- /carousel-track -->
-      </div><!-- /carousel-track-outer -->
+        </div>
+      </div>
 
       <div class="carousel-nav">
         <button class="carousel-btn" id="prevBtn" aria-label="Previous">
@@ -1452,19 +1294,8 @@
         <div class="contact-card-value">2 Days in Advance</div>
       </div>
 
-      <!-- ══════════════════════════════════════
-           GOOGLE REVIEWS CARD
-           Replace the href below with your actual
-           Google Business profile link.
-           How to find it:
-           1. Search your business name on Google Maps
-           2. Click "Write a review"
-           3. Copy the URL from the address bar
-      ══════════════════════════════════════ -->
-      <a href="https://shorturl.at/Zg7Un" target="_blank" class="contact-card google-reviews-card" rel="noopener"
-         title="Leave us a Google Review">
+      <a href="https://shorturl.at/Zg7Un" target="_blank" class="contact-card google-reviews-card" rel="noopener" title="Leave us a Google Review">
         <div class="contact-card-icon" style="color: var(--gold);">
-          <!-- Google "G" logo in 4 colours -->
           <svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
             <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -1495,9 +1326,6 @@
         Follow on Instagram
       </a>
 
-      <!-- ══════════════════════════════════════
-           Update this href with your Google Business link (same as the card above)
-      ══════════════════════════════════════ -->
       <a href="https://shorturl.at/Zg7Un" target="_blank" class="cta-google-reviews" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -1547,20 +1375,19 @@
 
     /* ── CAROUSEL ── */
     (function() {
-      const track     = document.getElementById('carouselTrack');
-      const prevBtn   = document.getElementById('prevBtn');
-      const nextBtn   = document.getElementById('nextBtn');
-      const dotsEl    = document.getElementById('carouselDots');
-      const slides    = track.querySelectorAll('.carousel-slide');
-      const total     = slides.length;
+      const track   = document.getElementById('carouselTrack');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const dotsEl  = document.getElementById('carouselDots');
+      const slides  = track.querySelectorAll('.carousel-slide');
+      const total   = slides.length;
 
-      let current     = 0;
-      let autoTimer   = null;
-      let isDragging  = false;
-      let startX      = 0;
-      let dragDelta   = 0;
+      let current   = 0;
+      let autoTimer = null;
+      let isDragging = false;
+      let startX    = 0;
+      let dragDelta = 0;
 
-      /* build dots */
       slides.forEach((_, i) => {
         const dot = document.createElement('button');
         dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
@@ -1569,16 +1396,12 @@
         dotsEl.appendChild(dot);
       });
 
-      function getSlideWidth() {
-        return slides[0].offsetWidth + 24; /* gap = 1.5rem = 24px */
-      }
+      function getSlideWidth() { return slides[0].offsetWidth + 24; }
 
       function goTo(index) {
         current = (index + total) % total;
         track.style.transform = `translateX(-${current * getSlideWidth()}px)`;
-        dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => {
-          d.classList.toggle('active', i === current);
-        });
+        dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === current));
       }
 
       function next() { goTo(current + 1); }
@@ -1587,31 +1410,27 @@
       nextBtn.addEventListener('click', () => { next(); resetAuto(); });
       prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
 
-      /* auto-advance every 3.5 s */
       function startAuto() { autoTimer = setInterval(next, 3500); }
       function resetAuto()  { clearInterval(autoTimer); startAuto(); }
       startAuto();
 
-      /* touch / mouse drag */
       function onDragStart(e) {
         isDragging = true;
         startX = e.touches ? e.touches[0].clientX : e.clientX;
         track.style.transition = 'none';
       }
-
       function onDragMove(e) {
         if (!isDragging) return;
         dragDelta = (e.touches ? e.touches[0].clientX : e.clientX) - startX;
         track.style.transform = `translateX(${-current * getSlideWidth() + dragDelta}px)`;
       }
-
       function onDragEnd() {
         if (!isDragging) return;
         isDragging = false;
         track.style.transition = '';
-        if (dragDelta < -60)      next();
-        else if (dragDelta > 60)  prev();
-        else                      goTo(current);
+        if (dragDelta < -60)     next();
+        else if (dragDelta > 60) prev();
+        else                     goTo(current);
         dragDelta = 0;
         resetAuto();
       }
@@ -1623,12 +1442,8 @@
       track.addEventListener('touchstart', onDragStart, { passive: true });
       track.addEventListener('touchmove',  onDragMove,  { passive: true });
       track.addEventListener('touchend',   onDragEnd);
-
-      /* pause on hover */
       track.addEventListener('mouseenter', () => clearInterval(autoTimer));
       track.addEventListener('mouseleave', () => { if (!isDragging) startAuto(); });
-
-      /* recalculate on resize */
       window.addEventListener('resize', () => goTo(current));
     })();
   </script>
