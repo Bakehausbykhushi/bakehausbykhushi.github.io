@@ -84,8 +84,8 @@
     #hero {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr; /* more space on the left like screenshot */
-      grid-template-rows: auto 1fr;         /* logo row + content row */
+      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-rows: auto 1fr;
       align-items: start;
       padding: 7rem 4rem 4rem;
       position: relative;
@@ -100,7 +100,6 @@
     .hero-bg-circle.c1 { width: 600px; height: 600px; right: -100px; top: -100px; opacity: 0.6; }
     .hero-bg-circle.c2 { width: 300px; height: 300px; left: 10%; bottom: 5%; opacity: 0.3; }
 
-    /* Centered main brand/logo above hero (matches screenshot placement) */
     .hero-brand {
       grid-column: 1 / -1;
       display: flex;
@@ -204,15 +203,14 @@
 
     .hero-actions { display: flex; align-items: center; gap: 0.5rem; }
 
-    /* Push Today’s Highlights to the right and a bit lower (matches screenshot) */
     .hero-visual {
       position: relative;
       z-index: 2;
       display: flex;
       justify-content: flex-end;
       align-items: flex-start;
-      padding-top: 2.4rem;   /* makes it sit lower */
-      padding-right: 0.5rem; /* nudges right */
+      padding-top: 2.4rem;
+      padding-right: 0.5rem;
     }
 
     .hero-card {
@@ -222,7 +220,6 @@
       box-shadow: 0 30px 80px rgba(92, 61, 46, 0.12);
       max-width: 380px;
       width: 100%;
-      animation: none; /* removed float to match screenshot */
     }
 
     .hero-card-title {
@@ -507,6 +504,185 @@
       border-bottom: 1px dashed rgba(196, 115, 90, 0.3);
     }
 
+    /* ── PHOTO CAROUSEL ── */
+    #gallery {
+      background: var(--cream);
+      padding: 5rem 0;
+      overflow: hidden;
+    }
+
+    .gallery-header {
+      padding: 0 4rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+    }
+
+    .carousel-track-outer {
+      overflow: hidden;
+      padding: 1rem 0 2rem;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 1.5rem;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      padding: 0 4rem;
+      will-change: transform;
+    }
+
+    .carousel-slide {
+      flex: 0 0 320px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      background: var(--blush);
+      aspect-ratio: 4/5;
+      box-shadow: 0 8px 30px rgba(92, 61, 46, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .carousel-slide:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(92, 61, 46, 0.18);
+    }
+
+    /* Each slide has a placeholder gradient — replace with your own <img> tags */
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Placeholder styling for when no image is present */
+    .slide-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .slide-placeholder-icon {
+      font-size: 3rem;
+      opacity: 0.4;
+    }
+
+    .slide-placeholder-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--brown);
+      opacity: 0.5;
+      line-height: 1.4;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(46, 28, 20, 0.75) 0%, transparent 100%);
+      padding: 1.5rem 1.2rem 1.2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .carousel-slide:hover .slide-overlay { opacity: 1; }
+
+    .slide-overlay-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: white;
+      font-style: italic;
+    }
+
+    .slide-overlay-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-top: 0.2rem;
+    }
+
+    /* Gradient fade on edges */
+    .carousel-wrapper::before,
+    .carousel-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 100px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .carousel-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, var(--cream), transparent);
+    }
+    .carousel-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, var(--cream), transparent);
+    }
+
+    /* Nav buttons */
+    .carousel-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .carousel-btn {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(196, 115, 90, 0.35);
+      background: white;
+      color: var(--brown);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(92, 61, 46, 0.08);
+    }
+
+    .carousel-btn:hover {
+      background: var(--terracotta);
+      color: white;
+      border-color: var(--terracotta);
+      transform: scale(1.08);
+    }
+
+    .carousel-btn svg { width: 18px; height: 18px; }
+
+    .carousel-dots {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .carousel-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--rose);
+      opacity: 0.3;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .carousel-dot.active {
+      opacity: 1;
+      background: var(--terracotta);
+      width: 20px;
+      border-radius: 3px;
+    }
+
     /* ── PROCESS ── */
     #process {
       background: var(--blush);
@@ -630,6 +806,39 @@
       line-height: 1.5;
     }
 
+    /* Google Reviews Card — special gold accent */
+    .contact-card.google-reviews-card {
+      border-color: rgba(201, 169, 110, 0.3);
+      background: rgba(201, 169, 110, 0.07);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-card.google-reviews-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #FBBC05, #EA4335, #34A853, #4285F4);
+    }
+    .contact-card.google-reviews-card:hover {
+      background: rgba(201, 169, 110, 0.13);
+      border-color: rgba(201, 169, 110, 0.5);
+    }
+    .contact-card.google-reviews-card .contact-card-label {
+      color: var(--gold);
+    }
+
+    .google-stars {
+      display: flex;
+      justify-content: center;
+      gap: 3px;
+      margin-top: 0.4rem;
+    }
+    .google-stars svg {
+      width: 16px; height: 16px;
+      fill: #FBBC05;
+    }
+
     .cta-group {
       display: flex;
       gap: 1rem;
@@ -670,7 +879,28 @@
     }
     .cta-instagram:hover { background: rgba(250, 245, 239, 0.1); transform: translateY(-2px); border-color: rgba(250,245,239,0.4); }
 
-    /* ── FOOTER (logo removed) ── */
+    .cta-google-reviews {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: white;
+      color: #3c4043;
+      padding: 1.1rem 2.4rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+    .cta-google-reviews:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .cta-google-reviews svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
     footer {
       background: #1A0E08;
       padding: 2.2rem 4rem;
@@ -738,6 +968,11 @@
       .steps-grid { grid-template-columns: 1fr 1fr; }
       .steps-grid::before { display: none; }
 
+      #gallery { padding: 4rem 0; }
+      .gallery-header { padding: 0 1.5rem; }
+      .carousel-track { padding: 0 1.5rem; }
+      .carousel-slide { flex: 0 0 260px; }
+
       footer {
         flex-direction: column;
         gap: 0.8rem;
@@ -754,6 +989,7 @@
       .about-stats { grid-template-columns: 1fr 1fr; }
       .menu-grid { grid-template-columns: 1fr; }
       .cta-group { flex-direction: column; align-items: center; }
+      .carousel-slide { flex: 0 0 240px; }
     }
   </style>
 </head>
@@ -765,6 +1001,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#process">How to Order</a></li>
       <li>
         <a href="https://www.instagram.com/_chef_khushi_?igsh=MWQ3ZmwwZXJsdjZobg==" target="_blank" class="nav-instagram" title="Follow on Instagram" rel="noopener">
@@ -784,7 +1021,6 @@
     <div class="hero-bg-circle c1"></div>
     <div class="hero-bg-circle c2"></div>
 
-    <!-- Centered logo like screenshot -->
     <div class="hero-brand reveal">
       <img src="transparent-logo.png" alt="BakeHaus by Khushi Lalwani">
     </div>
@@ -948,9 +1184,7 @@
 
     <!-- Tea Time Cakes -->
     <div class="menu-panel" id="tab-teatime">
-      <p style="font-size:0.88rem;color:var(--brown);margin-bottom:1.5rem;opacity:0.7;">
-        Comfort bakes for everyday cravings &mdash; all 500g unless noted
-      </p>
+      <p style="font-size:0.88rem;color:var(--brown);margin-bottom:1.5rem;opacity:0.7;">Comfort bakes for everyday cravings &mdash; all 500g unless noted</p>
       <div class="menu-grid">
         <div class="menu-item"><div class="menu-item-name">Iyengar Mawa Tea Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;550</span><span class="menu-weight">500g</span></div></div>
         <div class="menu-item"><div class="menu-item-name">Chocolate Callet Butter Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;500</span><span class="menu-weight">500g</span></div></div>
@@ -1006,6 +1240,137 @@
         <div class="menu-item"><div class="menu-item-name">Spinach Corn Cheese Quiche</div><div class="menu-item-footer"><span class="menu-price">&#8377;85/pc</span><span class="menu-weight">MOQ 8 pcs</span></div></div>
         <div class="menu-item"><div class="menu-item-name">Mushroom Cheese Quiche</div><div class="menu-item-footer"><span class="menu-price">&#8377;85/pc</span><span class="menu-weight">MOQ 8 pcs</span></div></div>
         <div class="menu-item"><div class="menu-item-name">Focaccia</div><div class="menu-item-desc">Classic Italian flatbread with herbs</div><div class="menu-item-footer"><span class="menu-price">&#8377;400</span><span class="menu-weight">300g</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PHOTO CAROUSEL
+       ─────────────────────────────────────────
+       HOW TO ADD YOUR PHOTOS:
+       Replace the <div class="slide-placeholder">…</div>
+       inside each .carousel-slide with:
+         <img src="your-photo.jpg" alt="Description">
+       You can also add/remove .carousel-slide blocks.
+  ════════════════════════════════════════════ -->
+  <section id="gallery">
+    <div class="gallery-header reveal">
+      <div class="section-eyebrow">From the Kitchen</div>
+      <h2>Made with <em>love</em></h2>
+      <p class="section-intro" style="margin-bottom:0;">A peek at what comes out of BakeHaus — every bake, a little piece of art.</p>
+    </div>
+
+    <div class="carousel-wrapper reveal">
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="carouselTrack">
+
+          <!-- ── SLIDE 1 ── Replace placeholder with your photo -->
+          <div class="carousel-slide" style="background: linear-gradient(135deg, #e8c9bc 0%, #d4a090 100%);">
+            <div class="slide-placeholder">
+              <div class="slide-placeholder-icon">🎂</div>
+              <div class="slide-placeholder-text">Add your<br>Celebration Cake photo here</div>
+            </div>
+            <div class="slide-overlay">
+              <div class="slide-overlay-name">Celebration Cakes</div>
+              <div class="slide-overlay-tag">Made to order</div>
+            </div>
+          </div>
+
+          <!-- ── SLIDE 2 ── -->
+          <div class="carousel-slide" style="background: linear-gradient(135deg, #c9b99a 0%, #a8896c 100%);">
+            <div class="slide-placeholder">
+              <div class="slide-placeholder-icon">🍪</div>
+              <div class="slide-placeholder-text">Add your<br>Chonky Cookies photo here</div>
+            </div>
+            <div class="slide-overlay">
+              <div class="slide-overlay-name">Chonky Cookies</div>
+              <div class="slide-overlay-tag">Soft &middot; Chewy &middot; Indulgent</div>
+            </div>
+          </div>
+
+          <!-- ── SLIDE 3 ── -->
+          <div class="carousel-slide" style="background: linear-gradient(135deg, #b5c9d4 0%, #7ea3b8 100%);">
+            <div class="slide-placeholder">
+              <div class="slide-placeholder-icon">🍰</div>
+              <div class="slide-placeholder-text">Add your<br>Tiramisu photo here</div>
+            </div>
+            <div class="slide-overlay">
+              <div class="slide-overlay-name">Tiramisu Cake</div>
+              <div class="slide-overlay-tag">Signature flavour</div>
+            </div>
+          </div>
+
+          <!-- ── SLIDE 4 ── -->
+          <div class="carousel-slide" style="background: linear-gradient(135deg, #d4c9e8 0%, #a890cc 100%);">
+            <div class="slide-placeholder">
+              <div class="slide-placeholder-icon">🫐</div>
+              <div class="slide-placeholder-text">Add your<br>Blueberry Cheesecake photo here</div>
+            </div>
+            <div class="slide-overlay">
+              <div class="slide-overlay-name">Blueberry Cheesecake</div>
+              <div class="slide-overlay-tag">Chef's pick</div>
+            </div>
+          </div>
+
+          <!-- ── SLIDE 5 ── -->
+          <div class="carousel-slide" style="background: linear-gradient(135deg, #d4e8c9 0%, #90cc88 100%);">
+            <div class="slide-placeholder">
+              <div class="slide-placeholder-icon">🧄</div>
+              <div class="slide-placeholder-text">Add your<br>Korean Garlic Buns photo here</div>
+            </div>
+            <div class="slide-overlay">
+              <div class="slide-overlay-name">Korean Garlic Buns</div>
+              <div class="slide-overlay-tag">Savoury bakes</div>
+            </div>
+          </div>
+
+          <!-- ── SLIDE 6 ── -->
+          <div class="carousel-slide" style="background: linear-gradient(135deg, #e8d4c9 0%, #cc9880 100%);">
+            <div class="slide-placeholder">
+              <div class="slide-placeholder-icon">🍫</div>
+              <div class="slide-placeholder-text">Add your<br>Brownies photo here</div>
+            </div>
+            <div class="slide-overlay">
+              <div class="slide-overlay-name">Signature Brownies</div>
+              <div class="slide-overlay-tag">Fudgy &middot; Dense &middot; Irresistible</div>
+            </div>
+          </div>
+
+          <!-- ── SLIDE 7 ── -->
+          <div class="carousel-slide" style="background: linear-gradient(135deg, #e8e4c9 0%, #ccc480 100%);">
+            <div class="slide-placeholder">
+              <div class="slide-placeholder-icon">🥧</div>
+              <div class="slide-placeholder-text">Add your<br>Tarts photo here</div>
+            </div>
+            <div class="slide-overlay">
+              <div class="slide-overlay-name">Party Tarts</div>
+              <div class="slide-overlay-tag">Party desserts</div>
+            </div>
+          </div>
+
+          <!-- ── SLIDE 8 ── -->
+          <div class="carousel-slide" style="background: linear-gradient(135deg, #e4c9d4 0%, #c88099 100%);">
+            <div class="slide-placeholder">
+              <div class="slide-placeholder-icon">🍮</div>
+              <div class="slide-placeholder-text">Add your<br>Kunafa Cake photo here</div>
+            </div>
+            <div class="slide-overlay">
+              <div class="slide-overlay-name">Kunafa Cake</div>
+              <div class="slide-overlay-tag">With OG Chocolate</div>
+            </div>
+          </div>
+
+        </div><!-- /carousel-track -->
+      </div><!-- /carousel-track-outer -->
+
+      <div class="carousel-nav">
+        <button class="carousel-btn" id="prevBtn" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
+        </button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" id="nextBtn" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -1086,6 +1451,37 @@
         <div class="contact-card-label">Pre-order Notice</div>
         <div class="contact-card-value">2 Days in Advance</div>
       </div>
+
+      <!-- ══════════════════════════════════════
+           GOOGLE REVIEWS CARD
+           Replace the href below with your actual
+           Google Business profile link.
+           How to find it:
+           1. Search your business name on Google Maps
+           2. Click "Write a review"
+           3. Copy the URL from the address bar
+      ══════════════════════════════════════ -->
+      <a href="https://shorturl.at/Zg7Un" target="_blank" class="contact-card google-reviews-card" rel="noopener"
+         title="Leave us a Google Review">
+        <div class="contact-card-icon" style="color: var(--gold);">
+          <!-- Google "G" logo in 4 colours -->
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+        </div>
+        <div class="contact-card-label">Google Reviews</div>
+        <div class="contact-card-value">Rate us ★★★★★</div>
+        <div class="google-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+      </a>
     </div>
 
     <div class="cta-group reveal">
@@ -1097,6 +1493,19 @@
       <a href="https://www.instagram.com/_chef_khushi_?igsh=MWQ3ZmwwZXJsdjZobg==" target="_blank" class="cta-instagram" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
         Follow on Instagram
+      </a>
+
+      <!-- ══════════════════════════════════════
+           Update this href with your Google Business link (same as the card above)
+      ══════════════════════════════════════ -->
+      <a href="https://shorturl.at/Zg7Un" target="_blank" class="cta-google-reviews" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Leave a Review
       </a>
     </div>
   </section>
@@ -1119,6 +1528,7 @@
   </footer>
 
   <script>
+    /* ── MENU TABS ── */
     function showTab(name, btn) {
       document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -1127,14 +1537,100 @@
       btn.classList.add('active');
     }
 
-    // Reveal on scroll
+    /* ── SCROLL REVEAL ── */
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* ── CAROUSEL ── */
+    (function() {
+      const track     = document.getElementById('carouselTrack');
+      const prevBtn   = document.getElementById('prevBtn');
+      const nextBtn   = document.getElementById('nextBtn');
+      const dotsEl    = document.getElementById('carouselDots');
+      const slides    = track.querySelectorAll('.carousel-slide');
+      const total     = slides.length;
+
+      let current     = 0;
+      let autoTimer   = null;
+      let isDragging  = false;
+      let startX      = 0;
+      let dragDelta   = 0;
+
+      /* build dots */
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(dot);
+      });
+
+      function getSlideWidth() {
+        return slides[0].offsetWidth + 24; /* gap = 1.5rem = 24px */
+      }
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * getSlideWidth()}px)`;
+        dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      nextBtn.addEventListener('click', () => { next(); resetAuto(); });
+      prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
+
+      /* auto-advance every 3.5 s */
+      function startAuto() { autoTimer = setInterval(next, 3500); }
+      function resetAuto()  { clearInterval(autoTimer); startAuto(); }
+      startAuto();
+
+      /* touch / mouse drag */
+      function onDragStart(e) {
+        isDragging = true;
+        startX = e.touches ? e.touches[0].clientX : e.clientX;
+        track.style.transition = 'none';
+      }
+
+      function onDragMove(e) {
+        if (!isDragging) return;
+        dragDelta = (e.touches ? e.touches[0].clientX : e.clientX) - startX;
+        track.style.transform = `translateX(${-current * getSlideWidth() + dragDelta}px)`;
+      }
+
+      function onDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        track.style.transition = '';
+        if (dragDelta < -60)      next();
+        else if (dragDelta > 60)  prev();
+        else                      goTo(current);
+        dragDelta = 0;
+        resetAuto();
+      }
+
+      track.addEventListener('mousedown',  onDragStart);
+      track.addEventListener('mousemove',  onDragMove);
+      track.addEventListener('mouseup',    onDragEnd);
+      track.addEventListener('mouseleave', onDragEnd);
+      track.addEventListener('touchstart', onDragStart, { passive: true });
+      track.addEventListener('touchmove',  onDragMove,  { passive: true });
+      track.addEventListener('touchend',   onDragEnd);
+
+      /* pause on hover */
+      track.addEventListener('mouseenter', () => clearInterval(autoTimer));
+      track.addEventListener('mouseleave', () => { if (!isDragging) startAuto(); });
+
+      /* recalculate on resize */
+      window.addEventListener('resize', () => goTo(current));
+    })();
   </script>
 </body>
 </html>
