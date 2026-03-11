@@ -555,53 +555,7 @@
       display: block;
     }
 
-    .slide-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      padding: 2rem;
-      text-align: center;
-    }
 
-    .slide-placeholder-icon { font-size: 3rem; opacity: 0.4; }
-
-    .slide-placeholder-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: var(--brown);
-      opacity: 0.5;
-      line-height: 1.4;
-    }
-
-    .slide-overlay {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(46, 28, 20, 0.75) 0%, transparent 100%);
-      padding: 1.5rem 1.2rem 1.2rem;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .carousel-slide:hover .slide-overlay { opacity: 1; }
-
-    .slide-overlay-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
-      color: white;
-      font-style: italic;
-    }
-
-    .slide-overlay-tag {
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--rose);
-      margin-top: 0.2rem;
-    }
 
     .carousel-wrapper::before,
     .carousel-wrapper::after {
@@ -826,23 +780,7 @@
     }
     .cta-instagram:hover { background: rgba(250, 245, 239, 0.1); transform: translateY(-2px); border-color: rgba(250,245,239,0.4); }
 
-    .cta-google-reviews {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: white;
-      color: #3c4043;
-      padding: 1.1rem 2.4rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: all 0.3s;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-    }
-    .cta-google-reviews:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
-    .cta-google-reviews svg { width: 18px; height: 18px; flex-shrink: 0; }
+
 
     /* ── FOOTER ── */
     footer {
@@ -1148,7 +1086,7 @@
        HOW TO ADD YOUR PHOTOS:
        Replace the <div class="slide-placeholder">…</div>
        inside each .carousel-slide with:
-         <img src="your-photo.jpg" alt="Description">
+         <img src="your-photo.jpeg" alt="Description">
        You can also add/remove .carousel-slide blocks freely.
   ════════════════════════════════════════════ -->
   <section id="gallery">
@@ -1161,46 +1099,41 @@
     <div class="carousel-wrapper reveal">
       <div class="carousel-track-outer">
         <div class="carousel-track" id="carouselTrack">
-        <img src="1.jpg" alt="Description">
-        <div class="carousel-slide" style="background: linear-gradient(135deg, #e8c9bc 0%, #d4a090 100%);">
-            
-            <div class="slide-overlay"><div class="slide-overlay-name">Celebration Cakes</div><div class="slide-overlay-tag">Made to order</div></div>
-          </div>
 
-          <div class="carousel-slide" style="background: linear-gradient(135deg, #c9b99a 0%, #a8896c 100%);">
-            <div class="slide-placeholder"><div class="slide-placeholder-icon">🍪</div><div class="slide-placeholder-text">Add your<br>Chonky Cookies photo here</div></div>
-            <div class="slide-overlay"><div class="slide-overlay-name">Chonky Cookies</div><div class="slide-overlay-tag">Soft &middot; Chewy &middot; Indulgent</div></div>
-          </div>
-
-          <div class="carousel-slide" style="background: linear-gradient(135deg, #b5c9d4 0%, #7ea3b8 100%);">
-            <div class="slide-placeholder"><div class="slide-placeholder-icon">🍰</div><div class="slide-placeholder-text">Add your<br>Tiramisu photo here</div></div>
-            <div class="slide-overlay"><div class="slide-overlay-name">Tiramisu Cake</div><div class="slide-overlay-tag">Signature flavour</div></div>
-          </div>
-
-          <div class="carousel-slide" style="background: linear-gradient(135deg, #d4c9e8 0%, #a890cc 100%);">
-            <div class="slide-placeholder"><div class="slide-placeholder-icon">🫐</div><div class="slide-placeholder-text">Add your<br>Blueberry Cheesecake photo here</div></div>
-            <div class="slide-overlay"><div class="slide-overlay-name">Blueberry Cheesecake</div><div class="slide-overlay-tag">Chef's pick</div></div>
-          </div>
-
-          <div class="carousel-slide" style="background: linear-gradient(135deg, #d4e8c9 0%, #90cc88 100%);">
-            <div class="slide-placeholder"><div class="slide-placeholder-icon">🧄</div><div class="slide-placeholder-text">Add your<br>Korean Garlic Buns photo here</div></div>
-            <div class="slide-overlay"><div class="slide-overlay-name">Korean Garlic Buns</div><div class="slide-overlay-tag">Savoury bakes</div></div>
-          </div>
-
-          <div class="carousel-slide" style="background: linear-gradient(135deg, #e8d4c9 0%, #cc9880 100%);">
-            <div class="slide-placeholder"><div class="slide-placeholder-icon">🍫</div><div class="slide-placeholder-text">Add your<br>Brownies photo here</div></div>
-            <div class="slide-overlay"><div class="slide-overlay-name">Signature Brownies</div><div class="slide-overlay-tag">Fudgy &middot; Dense &middot; Irresistible</div></div>
-          </div>
-
-          <div class="carousel-slide" style="background: linear-gradient(135deg, #e8e4c9 0%, #ccc480 100%);">
-            <div class="slide-placeholder"><div class="slide-placeholder-icon">🥧</div><div class="slide-placeholder-text">Add your<br>Tarts photo here</div></div>
-            <div class="slide-overlay"><div class="slide-overlay-name">Party Tarts</div><div class="slide-overlay-tag">Party desserts</div></div>
-          </div>
-
-          <div class="carousel-slide" style="background: linear-gradient(135deg, #e4c9d4 0%, #c88099 100%);">
-            <div class="slide-placeholder"><div class="slide-placeholder-icon">🍮</div><div class="slide-placeholder-text">Add your<br>Kunafa Cake photo here</div></div>
-            <div class="slide-overlay"><div class="slide-overlay-name">Kunafa Cake</div><div class="slide-overlay-tag">With OG Chocolate</div></div>
-          </div>
+          <div class="carousel-slide"><img src="1.jpeg" alt="BakeHaus bake 1"></div>
+          <div class="carousel-slide"><img src="2.jpeg" alt="BakeHaus bake 2"></div>
+          <div class="carousel-slide"><img src="3.jpeg" alt="BakeHaus bake 3"></div>
+          <div class="carousel-slide"><img src="4.jpeg" alt="BakeHaus bake 4"></div>
+          <div class="carousel-slide"><img src="5.jpeg" alt="BakeHaus bake 5"></div>
+          <div class="carousel-slide"><img src="6.jpeg" alt="BakeHaus bake 6"></div>
+          <div class="carousel-slide"><img src="7.jpeg" alt="BakeHaus bake 7"></div>
+          <div class="carousel-slide"><img src="8.jpeg" alt="BakeHaus bake 8"></div>
+          <div class="carousel-slide"><img src="9.jpeg" alt="BakeHaus bake 9"></div>
+          <div class="carousel-slide"><img src="10.jpeg" alt="BakeHaus bake 10"></div>
+          <div class="carousel-slide"><img src="11.jpeg" alt="BakeHaus bake 11"></div>
+          <div class="carousel-slide"><img src="12.jpeg" alt="BakeHaus bake 12"></div>
+          <div class="carousel-slide"><img src="13.jpeg" alt="BakeHaus bake 13"></div>
+          <div class="carousel-slide"><img src="14.jpeg" alt="BakeHaus bake 14"></div>
+          <div class="carousel-slide"><img src="15.jpeg" alt="BakeHaus bake 15"></div>
+          <div class="carousel-slide"><img src="16.jpeg" alt="BakeHaus bake 16"></div>
+          <div class="carousel-slide"><img src="17.jpeg" alt="BakeHaus bake 17"></div>
+          <div class="carousel-slide"><img src="18.jpeg" alt="BakeHaus bake 18"></div>
+          <div class="carousel-slide"><img src="19.jpeg" alt="BakeHaus bake 19"></div>
+          <div class="carousel-slide"><img src="20.jpeg" alt="BakeHaus bake 20"></div>
+          <div class="carousel-slide"><img src="21.jpeg" alt="BakeHaus bake 21"></div>
+          <div class="carousel-slide"><img src="22.jpeg" alt="BakeHaus bake 22"></div>
+          <div class="carousel-slide"><img src="23.jpeg" alt="BakeHaus bake 23"></div>
+          <div class="carousel-slide"><img src="24.jpeg" alt="BakeHaus bake 24"></div>
+          <div class="carousel-slide"><img src="25.jpeg" alt="BakeHaus bake 25"></div>
+          <div class="carousel-slide"><img src="26.jpeg" alt="BakeHaus bake 26"></div>
+          <div class="carousel-slide"><img src="27.jpeg" alt="BakeHaus bake 27"></div>
+          <div class="carousel-slide"><img src="28.jpeg" alt="BakeHaus bake 28"></div>
+          <div class="carousel-slide"><img src="29.jpeg" alt="BakeHaus bake 29"></div>
+          <div class="carousel-slide"><img src="30.jpeg" alt="BakeHaus bake 30"></div>
+          <div class="carousel-slide"><img src="31.jpeg" alt="BakeHaus bake 31"></div>
+          <div class="carousel-slide"><img src="32.jpeg" alt="BakeHaus bake 32"></div>
+          <div class="carousel-slide"><img src="33.jpeg" alt="BakeHaus bake 33"></div>
+          <div class="carousel-slide"><img src="34.jpeg" alt="BakeHaus bake 34"></div>
 
         </div>
       </div>
@@ -1326,15 +1259,7 @@
         Follow on Instagram
       </a>
 
-      <a href="https://shorturl.at/Zg7Un" target="_blank" class="cta-google-reviews" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-        </svg>
-        Leave a Review
-      </a>
+
     </div>
   </section>
 
