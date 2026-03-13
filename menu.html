@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu — BakeHaus by Khushi Lalwani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html" class="active-page">Menu</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="order.html">How to Order</a></li>
+      <li>
+        <a href="https://www.instagram.com/_chef_khushi_?igsh=MWQ3ZmwwZXJsdjZobg==" target="_blank" class="nav-instagram" title="Follow on Instagram" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </li>
+      <li><a href="order.html" class="nav-cta">Order Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner">
+    <div class="page-banner-bg b1"></div>
+    <div class="page-banner-bg b2"></div>
+    <div class="page-banner-eyebrow">The Menu</div>
+    <h1>Everything we <em>bake</em></h1>
+    <p>All items are made fresh to order. Prices listed are starting prices and may vary with customisation.</p>
+  </div>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="menu-tabs reveal">
+      <button class="tab-btn active" onclick="showTab('celebration', this)">Celebration Cakes</button>
+      <button class="tab-btn" onclick="showTab('cookies', this)">Cookies</button>
+      <button class="tab-btn" onclick="showTab('teatime', this)">Tea Time Cakes</button>
+      <button class="tab-btn" onclick="showTab('party', this)">Party Desserts</button>
+      <button class="tab-btn" onclick="showTab('others', this)">Other Desserts</button>
+      <button class="tab-btn" onclick="showTab('savoury', this)">Savoury Bakes</button>
+    </div>
+
+    <!-- Celebration Cakes -->
+    <div class="menu-panel active" id="tab-celebration">
+      <div class="menu-category-header">Signature Flavours</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-name">Tiramisu</div><div class="menu-item-desc">Classic Italian-inspired coffee cream cake with mascarpone layers</div><div class="menu-item-footer"><span class="menu-price">&#8377;850</span><span class="menu-weight">Starting price</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">OG 46% Dark Chocolate</div><div class="menu-item-desc">Rich, intense dark chocolate with a velvety finish</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span><span class="menu-weight">Starting price</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Chocolate Strawberry</div><div class="menu-item-desc">Decadent chocolate paired with fresh strawberry layers</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">Starting price</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Vanilla Strawberry Nutella</div><div class="menu-item-desc">Fluffy vanilla, fresh strawberry and luscious Nutella</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">Starting price</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Praline Cake</div><div class="menu-item-desc">Available in Chocolate or Vanilla with crunchy praline layers</div><div class="menu-item-footer"><span class="menu-price">&#8377;850</span><span class="menu-weight">Starting price</span></div></div>
+      </div>
+
+      <div class="menu-category-header">Classic &amp; Gourmet Flavours</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-name">Walnut &amp; Dark Chocolate</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Roasted Almond &amp; Dark Chocolate</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Nutella Rocher</div><div class="menu-item-footer"><span class="menu-price">&#8377;850</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">OG Chocolate &amp; Nutella</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Biscoff &amp; Chocolate</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Biscoff &amp; Vanilla</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Milk Chocolate &amp; Cashew Praline</div><div class="menu-item-footer"><span class="menu-price">&#8377;730</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Snickers Bomb</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">S'mores Cake</div><div class="menu-item-desc">Marshmallow &amp; Graham Crackers</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Chocolate Cherry</div><div class="menu-item-footer"><span class="menu-price">&#8377;950</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Coffee Caramel</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Caramel Crunch</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Blueberry Cream Cheese</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Lemon Blueberry</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Fresh Fruit (Seasonal)</div><div class="menu-item-footer"><span class="menu-price">&#8377;780</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Fresh Pineapple</div><div class="menu-item-footer"><span class="menu-price">&#8377;650</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Pistachio Strawberry</div><div class="menu-item-footer"><span class="menu-price">&#8377;850</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Rabri Gulab Jamun</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Rasmalai</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Rose Pistachio</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Kunafa Cake with OG Chocolate</div><div class="menu-item-footer"><span class="menu-price">&#8377;900</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Cookies &amp; Cream</div><div class="menu-item-footer"><span class="menu-price">&#8377;650</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Caf&eacute; Mocha</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span></div></div>
+      </div>
+      <div class="menu-note">Prices are starting prices and may vary with customisation. Custom designs, tiers, and special themes available on request.</div>
+    </div>
+
+    <!-- Cookies -->
+    <div class="menu-panel" id="tab-cookies">
+      <div class="menu-category-header">Tea Time Cookies</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-name">Classic Butter Cookies</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Almond Butter Sticks</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Date &amp; Almond Biscuits</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Jeera / Salt / Masala Biscuits</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span><span class="menu-weight">500g</span></div></div>
+      </div>
+      <div class="menu-category-header">Chonky Cookies &mdash; Soft &middot; Chewy &middot; Indulgent</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="bestseller-tag">Best Seller</div><div class="menu-item-name">Chocolate Chunk &amp; Sea Salt</div><div class="menu-item-footer"><span class="menu-price">&#8377;400</span><span class="menu-weight">300g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Double Chocolate</div><div class="menu-item-footer"><span class="menu-price">&#8377;450</span><span class="menu-weight">300g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Brookies</div><div class="menu-item-desc">Brownie + Cookie &mdash; the best of both worlds</div><div class="menu-item-footer"><span class="menu-price">&#8377;450</span><span class="menu-weight">300g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Lotus Biscoff Cookies</div><div class="menu-item-footer"><span class="menu-price">&#8377;500</span><span class="menu-weight">300g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Tiramisu Cookies</div><div class="menu-item-footer"><span class="menu-price">&#8377;500</span><span class="menu-weight">300g</span></div></div>
+      </div>
+    </div>
+
+    <!-- Tea Time Cakes -->
+    <div class="menu-panel" id="tab-teatime">
+      <p style="font-size:0.88rem;color:var(--brown);margin-bottom:1.5rem;opacity:0.7;">Comfort bakes for everyday cravings &mdash; all 500g unless noted</p>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-name">Iyengar Mawa Tea Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;550</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Chocolate Callet Butter Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;500</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Baklawa Tea Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;600</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Sugar-Free Oats &amp; Dates Cake</div><div class="menu-item-desc">Maida-Free</div><div class="menu-item-footer"><span class="menu-price">&#8377;650</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Wholewheat Jaggery Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;550</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Coconut Lime Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;500</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Almond Berry Crumble Tea Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;600</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Hazelnut Chocolate Tea Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;600</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Brownie Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;600</span><span class="menu-weight">350g</span></div></div>
+      </div>
+    </div>
+
+    <!-- Party Desserts -->
+    <div class="menu-panel" id="tab-party">
+      <div class="menu-note" style="margin-bottom:2rem;">Minimum order: 5 pieces per item</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-name">Blueberry Tarts</div><div class="menu-item-footer"><span class="menu-price">&#8377;130/pc</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Tiramisu Cups</div><div class="menu-item-footer"><span class="menu-price">&#8377;160/pc</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Boondi Gulab Jamun Tarts</div><div class="menu-item-footer"><span class="menu-price">&#8377;150/pc</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Chocolate Sea Salt Tarts</div><div class="menu-item-footer"><span class="menu-price">&#8377;110/pc</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Tres Leches</div><div class="menu-item-desc">Rasmalai / Classic / Cold Coffee</div><div class="menu-item-footer"><span class="menu-price">&#8377;200/pc</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Dulce de Leche Pudding</div><div class="menu-item-footer"><span class="menu-price">&#8377;150/pc</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Blueberry Cheesecake Cups</div><div class="menu-item-footer"><span class="menu-price">&#8377;130/pc</span></div></div>
+      </div>
+    </div>
+
+    <!-- Other Desserts -->
+    <div class="menu-panel" id="tab-others">
+      <div class="menu-category-header">Cheesecakes</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-name">Classic New York Cheesecake</div><div class="menu-item-footer"><span class="menu-price">&#8377;850</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Blueberry Cheesecake</div><div class="menu-item-footer"><span class="menu-price">&#8377;950</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Nutella Cheesecake</div><div class="menu-item-footer"><span class="menu-price">&#8377;950</span><span class="menu-weight">500g</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Biscoff Cheesecake</div><div class="menu-item-footer"><span class="menu-price">&#8377;950</span><span class="menu-weight">500g</span></div></div>
+      </div>
+      <div class="menu-category-header">Brownies</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-name">Signature Brownies</div><div class="menu-item-desc">Fudgy, dense, and utterly irresistible</div><div class="menu-item-footer"><span class="menu-price">&#8377;600</span><span class="menu-weight">4 pcs &middot; 350g</span></div></div>
+      </div>
+    </div>
+
+    <!-- Savoury -->
+    <div class="menu-panel" id="tab-savoury">
+      <div class="menu-note" style="margin-bottom:2rem;">Minimum order quantities (MOQ) applicable for all savoury items</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-name">Korean Garlic Buns</div><div class="menu-item-desc">Pillowy buns with garlicky, buttery goodness</div><div class="menu-item-footer"><span class="menu-price">&#8377;120/pc</span><span class="menu-weight">MOQ 6 pcs</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Spinach Corn Cheese Quiche</div><div class="menu-item-footer"><span class="menu-price">&#8377;85/pc</span><span class="menu-weight">MOQ 8 pcs</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Mushroom Cheese Quiche</div><div class="menu-item-footer"><span class="menu-price">&#8377;85/pc</span><span class="menu-weight">MOQ 8 pcs</span></div></div>
+        <div class="menu-item"><div class="menu-item-name">Focaccia</div><div class="menu-item-desc">Classic Italian flatbread with herbs</div><div class="menu-item-footer"><span class="menu-price">&#8377;400</span><span class="menu-weight">300g</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-center">&copy; 2025 &nbsp;&middot;&nbsp; 100% Eggless &nbsp;&middot;&nbsp; Pre-orders only</div>
+    <div class="footer-social">
+      <a href="https://wa.me/918983828666" target="_blank" title="WhatsApp" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/_chef_khushi_?igsh=MWQ3ZmwwZXJsdjZobg==" target="_blank" title="Instagram" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    function showTab(name, btn) {
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      const panel = document.getElementById('tab-' + name);
+      if (panel) panel.classList.add('active');
+      btn.classList.add('active');
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
