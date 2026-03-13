@@ -698,10 +698,9 @@ footer {
   background: rgba(46, 28, 20, 0.45);
   z-index: 150;
   opacity: 0;
-  pointer-events: none;
   transition: opacity 0.3s ease;
 }
-.mobile-menu-overlay.open { opacity: 1; pointer-events: auto; }
+.mobile-menu-overlay.open { opacity: 1; }
 
 .mobile-menu {
   position: fixed;
@@ -817,6 +816,7 @@ nav {
   nav { padding: 0.9rem 1.2rem; justify-content: space-between; }
   .nav-hamburger { display: flex; }
   .nav-links { display: none; }
+  .mobile-menu-overlay { display: block; }
 
   section { padding: 4rem 1.2rem; }
   #about { grid-template-columns: 1fr; gap: 2rem; }
