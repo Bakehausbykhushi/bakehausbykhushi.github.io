@@ -194,17 +194,48 @@
 
     /* Home responsive */
     @media (max-width: 900px) {
-      #hero { grid-template-columns: 1fr; grid-template-rows: auto auto auto; padding: 6rem 1.5rem 3rem; gap: 2rem; }
-      .hero-brand { margin-bottom: 1.8rem; }
+      #hero { grid-template-columns: 1fr; grid-template-rows: auto auto auto; padding: 5.5rem 1.2rem 3rem; gap: 1.5rem; }
+      .hero-brand { margin-bottom: 1.2rem; }
+      .hero-brand img { width: 240px; }
       .hero-visual { order: 3; padding-top: 0; padding-right: 0; justify-content: center; }
       .hero-card { max-width: 100%; }
+      .hero-actions { flex-wrap: wrap; gap: 0.5rem; }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-secondary { font-size: 0.75rem; padding: 0.85rem 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      #hero { padding: 5rem 1rem 2.5rem; }
+      .hero-bg-circle.c1 { width: 350px; height: 350px; }
+      .hero-bg-circle.c2 { display: none; }
+      .hero-badges { gap: 0.6rem; }
+      .badge { font-size: 0.65rem; padding: 0.35rem 0.8rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- MOBILE OVERLAY + DRAWER -->
+  <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-logo">BakeHaus ✦ Khushi Lalwani</div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="active-page">Home</a></li>
+      <li><a href="menu.html" class="">Menu</a></li>
+      <li><a href="gallery.html" class="">Gallery</a></li>
+      <li><a href="https://www.instagram.com/_chef_khushi_?igsh=MWQ3ZmwwZXJsdjZobg==" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+    <div class="mobile-menu-cta">
+      <a href="https://wa.me/918983828666" class="mobile-cta-whatsapp" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+      <a href="order.html" class="mobile-cta-order ">Order Now</a>
+    </div>
+  </div>
+
   <!-- NAV -->
   <nav>
+    <div class="nav-left"><a href="index.html" class="nav-logo-link">BakeHaus</a></div>
     <ul class="nav-links">
       <li><a href="index.html" class="active-page">Home</a></li>
       <li><a href="menu.html">Menu</a></li>
@@ -220,6 +251,9 @@
       </li>
       <li><a href="order.html" class="nav-cta">Order Now</a></li>
     </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
   </nav>
 
   <!-- HERO -->
@@ -235,7 +269,7 @@
       <div class="hero-eyebrow">100% Eggless &nbsp;&middot;&nbsp; Made to Order</div>
       <h1>Artisanal<br>bakes, <em>baked<br>with love</em></h1>
       <p class="hero-desc">
-        Handcrafted desserts and celebration cakes made from premium ingredients by Chef Khushi Lalwani, for every moment worth celebrating.
+        Handcrafted desserts and celebration cakes made from premium ingredients &mdash; by Chef Khushi Lalwani, for every moment worth celebrating.
       </p>
 
       <div class="hero-badges">
@@ -275,7 +309,7 @@
       <div class="section-eyebrow">Our Story</div>
       <h2>Baked from <em>scratch,<br>always</em></h2>
       <p style="color:rgba(250,245,239,0.75);font-size:1rem;line-height:1.8;max-width:440px;margin-bottom:2rem;">
-        Every item at BakeHaus is made fresh to order. No preservatives, no shortcuts just premium ingredients, careful technique, and a whole lot of care poured into every bake.
+        Every item at BakeHaus is made fresh to order. No preservatives, no shortcuts &mdash; just premium ingredients, careful technique, and a whole lot of care poured into every bake.
       </p>
       <div class="about-stats">
         <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Eggless</div></div>
@@ -289,7 +323,7 @@
       <div class="about-feature">
         <div class="about-feature-label">Signature Range</div>
         <h4>Celebration Cakes</h4>
-        <p>From Tiramisu to Kunafa, every cake is a showstopper customised just for your occasion.</p>
+        <p>From Tiramisu to Kunafa, every cake is a showstopper &mdash; customised just for your occasion.</p>
       </div>
       <div class="about-feature">
         <div class="about-feature-label">Everyday Indulgence</div>
@@ -299,14 +333,14 @@
       <div class="about-feature">
         <div class="about-feature-label">Beyond the Sweet</div>
         <h4>Savoury Bakes</h4>
-        <p>Korean Garlic Buns, Focaccia, and Cheese Quiches because baked love comes in savoury too.</p>
+        <p>Korean Garlic Buns, Focaccia, and Cheese Quiches &mdash; because baked love comes in savoury too.</p>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-center">&copy; 2026 BakeHaus by Khushi Lalwani &nbsp;&middot;&nbsp; All rights reserved &nbsp;&middot;&nbsp; Prices subject to change &nbsp;&middot;&nbsp; Images for representation only · Pre-orders only </div>
+    <div class="footer-center">&copy; 2026 BakeHaus by Khushi Lalwani &nbsp;&middot;&nbsp; All rights reserved &nbsp;&middot;&nbsp; Prices subject to change &nbsp;&middot;&nbsp; Images for representation only &nbsp;&middot;&nbsp; Pre-orders only</div>
     <div class="footer-social">
       <a href="https://wa.me/918983828666" target="_blank" title="WhatsApp" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -326,6 +360,15 @@
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    /* ── MOBILE NAV ── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay    = document.getElementById('mobileOverlay');
+    function openMenu()  { hamburger.classList.add('open'); mobileMenu.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; }
+    hamburger.addEventListener('click', () => hamburger.classList.contains('open') ? closeMenu() : openMenu());
+    overlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-nav-links a, .mobile-menu-cta a').forEach(a => a.addEventListener('click', closeMenu));
   </script>
 </body>
 </html>
