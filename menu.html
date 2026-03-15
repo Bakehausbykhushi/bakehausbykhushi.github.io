@@ -7,50 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .grazing-event-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.2rem;
-      margin-bottom: 2.5rem;
-    }
-    .grazing-event-grid-item {
-      border-radius: 16px;
-      overflow: hidden;
-      aspect-ratio: 4/5;
-      background: var(--blush);
-      box-shadow: 0 4px 20px rgba(92, 61, 46, 0.08);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .grazing-event-grid-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(92, 61, 46, 0.15);
-    }
-    .grazing-event-grid-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .grazing-event-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .grazing-event-label::before {
-      content: '';
-      display: inline-block;
-      width: 30px; height: 1px;
-      background: var(--terracotta);
-    }
-    @media (max-width: 600px) {
-      .grazing-event-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
-    }
-  </style>
 </head>
 <body>
 
@@ -235,16 +191,29 @@
     <!-- GRAZING TABLE -->
     <div class="menu-panel" id="tab-grazing">
 
-      <!-- ── EVENT PHOTOS ── -->
-      <div class="grazing-event-label">From Our First Event</div>
-      <div class="grazing-event-grid">
-        <div class="grazing-event-grid-item"><img src="35.jpeg" alt="Grazing table event 1"></div>
-        <div class="grazing-event-grid-item"><img src="36.jpeg" alt="Grazing table event 2"></div>
-        <div class="grazing-event-grid-item"><img src="37.jpeg" alt="Grazing table event 3"></div>
-        <div class="grazing-event-grid-item"><img src="38.jpeg" alt="Grazing table event 4"></div>
-        <div class="grazing-event-grid-item"><img src="39.jpeg" alt="Grazing table event 5"></div>
-        <div class="grazing-event-grid-item"><img src="40.jpeg" alt="Grazing table event 6"></div>
-        <div class="grazing-event-grid-item"><img src="41.jpeg" alt="Grazing table event 7"></div>
+      <!-- ── EVENT PHOTO CAROUSEL ── -->
+      <div class="grazing-event-label">A sneak peek into our recent grazing tables</div>
+      <div class="grazing-carousel-wrapper">
+        <div class="grazing-carousel-track-outer">
+          <div class="grazing-carousel-track" id="grazingTrack">
+            <div class="grazing-carousel-slide"><img src="35.jpeg" alt="Grazing table 1"></div>
+            <div class="grazing-carousel-slide"><img src="36.jpeg" alt="Grazing table 2"></div>
+            <div class="grazing-carousel-slide"><img src="37.jpeg" alt="Grazing table 3"></div>
+            <div class="grazing-carousel-slide"><img src="38.jpeg" alt="Grazing table 4"></div>
+            <div class="grazing-carousel-slide"><img src="39.jpeg" alt="Grazing table 5"></div>
+            <div class="grazing-carousel-slide"><img src="40.jpeg" alt="Grazing table 6"></div>
+            <div class="grazing-carousel-slide"><img src="41.jpeg" alt="Grazing table 7"></div>
+          </div>
+        </div>
+        <div class="grazing-carousel-nav">
+          <button class="carousel-btn" id="grazingPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
+          </button>
+          <div class="carousel-dots" id="grazingDots"></div>
+          <button class="carousel-btn" id="grazingNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+          </button>
+        </div>
       </div>
 
       <div class="grazing-package-banner">
@@ -254,7 +223,7 @@
           <div class="grazing-package-desc">3 Savoury &nbsp;+&nbsp; 2 Desserts &nbsp;+&nbsp; 1 Beverage per head &mdash; fully customisable from the options below.</div>
         </div>
         <div class="grazing-package-right">
-          <div class="grazing-price-tag">&#8377;700<span>/person</span></div>
+          <div class="grazing-price-tag">&#8377;700<span>/head</span></div>
           <div class="grazing-moq">Minimum 15 people</div>
           <div class="grazing-notice">1 week advance notice required</div>
         </div>
@@ -351,19 +320,102 @@
   </footer>
 
   <script>
+    /* ── TAB SWITCHING ── */
     function showTab(name, btn) {
       document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       const panel = document.getElementById('tab-' + name);
       if (panel) panel.classList.add('active');
       btn.classList.add('active');
+      if (name === 'grazing') grazingCarousel.recalc();
     }
+
+    /* ── GRAZING CAROUSEL ── */
+    const grazingCarousel = (function() {
+      const track    = document.getElementById('grazingTrack');
+      const prevBtn  = document.getElementById('grazingPrev');
+      const nextBtn  = document.getElementById('grazingNext');
+      const dotsEl   = document.getElementById('grazingDots');
+      const slides   = track.querySelectorAll('.grazing-carousel-slide');
+      const total    = slides.length;
+      let current    = 0;
+      let autoTimer  = null;
+      let isDragging = false;
+      let startX     = 0;
+      let dragDelta  = 0;
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(dot);
+      });
+
+      function getSlideWidth() {
+        return slides[0].offsetWidth + 16;
+      }
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * getSlideWidth()}px)`;
+        dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) =>
+          d.classList.toggle('active', i === current));
+      }
+
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
+      nextBtn.addEventListener('click', () => { next(); resetAuto(); });
+
+      function startAuto() { autoTimer = setInterval(next, 3500); }
+      function resetAuto()  { clearInterval(autoTimer); startAuto(); }
+      startAuto();
+
+      function onDragStart(e) {
+        isDragging = true;
+        startX = e.touches ? e.touches[0].clientX : e.clientX;
+        track.style.transition = 'none';
+      }
+      function onDragMove(e) {
+        if (!isDragging) return;
+        dragDelta = (e.touches ? e.touches[0].clientX : e.clientX) - startX;
+        track.style.transform = `translateX(${-current * getSlideWidth() + dragDelta}px)`;
+      }
+      function onDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        track.style.transition = '';
+        if (dragDelta < -60)      next();
+        else if (dragDelta > 60)  prev();
+        else                      goTo(current);
+        dragDelta = 0;
+        resetAuto();
+      }
+
+      track.addEventListener('mousedown',  onDragStart);
+      track.addEventListener('mousemove',  onDragMove);
+      track.addEventListener('mouseup',    onDragEnd);
+      track.addEventListener('mouseleave', onDragEnd);
+      track.addEventListener('touchstart', onDragStart, { passive: true });
+      track.addEventListener('touchmove',  onDragMove,  { passive: true });
+      track.addEventListener('touchend',   onDragEnd);
+      track.addEventListener('mouseenter', () => clearInterval(autoTimer));
+      track.addEventListener('mouseleave', () => { if (!isDragging) startAuto(); });
+      window.addEventListener('resize',    () => goTo(current));
+
+      return { recalc: () => goTo(current) };
+    })();
+
+    /* ── SCROLL REVEAL ── */
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
     /* ── MOBILE NAV ── */
-    const hamburger = document.getElementById('hamburger');
+    const hamburger  = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay    = document.getElementById('mobileOverlay');
     function openMenu()  { hamburger.classList.add('open'); mobileMenu.classList.add('open'); overlay.style.display = 'block'; requestAnimationFrame(() => overlay.classList.add('open')); document.body.style.overflow = 'hidden'; }
