@@ -850,6 +850,9 @@ nav {
 
   .menu-tabs { gap: 0.4rem; }
   .tab-btn { padding: 0.5rem 1rem; font-size: 0.7rem; }
+
+  .grazing-carousel-track { padding: 0 1.2rem; }
+  .grazing-carousel-slide { flex: 0 0 260px; }
 }
 
 @media (max-width: 600px) {
@@ -868,6 +871,8 @@ nav {
 
   h2 { font-size: clamp(1.8rem, 8vw, 2.8rem); }
   .section-intro { font-size: 0.92rem; }
+
+  .grazing-carousel-slide { flex: 0 0 220px; }
 }
 
 /* ── GRAZING TABLE ── */
@@ -953,13 +958,13 @@ nav {
   .grazing-price-tag { font-size: 2.4rem; }
 }
 
-/* ── GRAZING EVENT PHOTOS ── */
+/* ── GRAZING EVENT CAROUSEL ── */
 .grazing-event-label {
   font-size: 0.72rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--terracotta);
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -970,29 +975,60 @@ nav {
   width: 30px; height: 1px;
   background: var(--terracotta);
 }
-.grazing-event-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.2rem;
+
+.grazing-carousel-wrapper {
+  position: relative;
   margin-bottom: 2.5rem;
+  overflow: hidden;
 }
-.grazing-event-grid-item {
-  border-radius: 16px;
+.grazing-carousel-wrapper::before,
+.grazing-carousel-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.grazing-carousel-wrapper::before { left: 0; background: linear-gradient(to right, var(--cream), transparent); }
+.grazing-carousel-wrapper::after  { right: 0; background: linear-gradient(to left, var(--cream), transparent); }
+
+.grazing-carousel-track-outer {
+  overflow: hidden;
+  padding: 0.5rem 0 1rem;
+}
+
+.grazing-carousel-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.grazing-carousel-slide {
+  flex: 0 0 320px;
+  border-radius: 20px;
   overflow: hidden;
   aspect-ratio: 4/5;
   background: var(--blush);
-  box-shadow: 0 4px 20px rgba(92, 61, 46, 0.08);
+  box-shadow: 0 8px 30px rgba(92, 61, 46, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
-.grazing-event-grid-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(92, 61, 46, 0.15);
+.grazing-carousel-slide:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(92, 61, 46, 0.18);
 }
-.grazing-event-grid-item img {
+.grazing-carousel-slide img {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
 }
-@media (max-width: 600px) {
-  .grazing-event-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+
+.grazing-carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.2rem;
 }
