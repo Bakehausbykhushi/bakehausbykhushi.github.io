@@ -7,6 +7,50 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .grazing-event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .grazing-event-grid-item {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: var(--blush);
+      box-shadow: 0 4px 20px rgba(92, 61, 46, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .grazing-event-grid-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(92, 61, 46, 0.15);
+    }
+    .grazing-event-grid-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .grazing-event-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .grazing-event-label::before {
+      content: '';
+      display: inline-block;
+      width: 30px; height: 1px;
+      background: var(--terracotta);
+    }
+    @media (max-width: 600px) {
+      .grazing-event-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -191,6 +235,18 @@
     <!-- GRAZING TABLE -->
     <div class="menu-panel" id="tab-grazing">
 
+      <!-- ── EVENT PHOTOS ── -->
+      <div class="grazing-event-label">From Our First Event</div>
+      <div class="grazing-event-grid">
+        <div class="grazing-event-grid-item"><img src="35.jpeg" alt="Grazing table event 1"></div>
+        <div class="grazing-event-grid-item"><img src="36.jpeg" alt="Grazing table event 2"></div>
+        <div class="grazing-event-grid-item"><img src="37.jpeg" alt="Grazing table event 3"></div>
+        <div class="grazing-event-grid-item"><img src="38.jpeg" alt="Grazing table event 4"></div>
+        <div class="grazing-event-grid-item"><img src="39.jpeg" alt="Grazing table event 5"></div>
+        <div class="grazing-event-grid-item"><img src="40.jpeg" alt="Grazing table event 6"></div>
+        <div class="grazing-event-grid-item"><img src="41.jpeg" alt="Grazing table event 7"></div>
+      </div>
+
       <div class="grazing-package-banner">
         <div class="grazing-package-left">
           <div class="grazing-package-eyebrow">Curated Package</div>
@@ -198,7 +254,7 @@
           <div class="grazing-package-desc">3 Savoury &nbsp;+&nbsp; 2 Desserts &nbsp;+&nbsp; 1 Beverage per head &mdash; fully customisable from the options below.</div>
         </div>
         <div class="grazing-package-right">
-          <div class="grazing-price-tag">&#8377;700<span>/head</span></div>
+          <div class="grazing-price-tag">&#8377;700<span>/person</span></div>
           <div class="grazing-moq">Minimum 15 people</div>
           <div class="grazing-notice">1 week advance notice required</div>
         </div>
