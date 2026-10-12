@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bakehausbykhushi.github.io/sitemap.xml
+Sitemap: https://bakehausbykhushi.com/sitemap.xml
