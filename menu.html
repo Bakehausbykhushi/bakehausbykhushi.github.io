@@ -1,428 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-IN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Menu — BakeHaus by Khushi Lalwani</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Menu and prices | BakeHaus by Khushi</title>
+  <meta name="description" content="Full menu with prices: celebration cakes, signature cookie tins, cupcakes, cookies, tea cakes, party desserts, cheesecakes and savoury bakes. 100% eggless. Jalgaon, Maharashtra.">
+  <meta name="theme-color" content="#EEF1E6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121813" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://bakehausbykhushi.github.io/menu.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BakeHaus by Khushi">
+  <meta property="og:title" content="BakeHaus menu and prices">
+  <meta property="og:description" content="Eggless cakes, cookie tins, cupcakes and more. Tap any item to order on WhatsApp.">
+  <meta property="og:url" content="https://bakehausbykhushi.github.io/menu.html">
+  <meta property="og:image" content="https://bakehausbykhushi.github.io/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BakeHaus by Khushi: eggless cakes and grazing tables">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body data-page="menu">
+  <a class="skip" href="#main">Skip to menu</a>
+  <header class="site-header" id="siteHeader"></header>
 
-  <!-- MOBILE OVERLAY + DRAWER -->
-  <div class="mobile-menu-overlay" id="mobileOverlay"></div>
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-logo">BakeHaus ✦ Khushi Lalwani</div>
-    <ul class="mobile-nav-links">
-      <li><a href="index.html" class="">Home</a></li>
-      <li><a href="menu.html" class="active-page">Menu</a></li>
-      <li><a href="gallery.html" class="">Gallery</a></li>
-      <li><a href="https://www.instagram.com/bakehaus_by_khushi?igsh=MWQ3ZmwwZXJsdjZobg==" target="_blank" rel="noopener">Instagram</a></li>
-    </ul>
-    <div class="mobile-menu-cta">
-      <a href="https://wa.me/918983828666" class="mobile-cta-whatsapp" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        WhatsApp
-      </a>
-      <a href="order.html" class="mobile-cta-order ">Order Now</a>
-    </div>
-  </div>
-
-  <!-- NAV -->
-  <nav>
-    <div class="nav-left"><a href="index.html" class="nav-logo-link">BakeHaus</a></div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="menu.html" class="active-page">Menu</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li>
-        <a href="https://www.instagram.com/bakehaus_by_khushi?igsh=MWQ3ZmwwZXJsdjZobg==" target="_blank" class="nav-instagram" title="Follow on Instagram" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
-          </svg>
-        </a>
-      </li>
-      <li><a href="order.html" class="nav-cta">Order Now</a></li>
-    </ul>
-      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-  </nav>
-
-  <!-- PAGE BANNER -->
-  <div class="page-banner">
-    <div class="page-banner-bg b1"></div>
-    <div class="page-banner-bg b2"></div>
-    <div class="page-banner-eyebrow">The Menu</div>
-    <h1>Everything we <em>bake</em></h1>
-    <p>All items are made fresh to order. Prices listed are starting prices and may vary with customisation.</p>
-  </div>
-
-  <!-- MENU -->
-  <section id="menu">
-    <div class="menu-tabs reveal">
-      <button class="tab-btn active" onclick="showTab('celebration', this)">Celebration Cakes</button>
-      <button class="tab-btn" onclick="showTab('cookies', this)">Cookies</button>
-      <button class="tab-btn" onclick="showTab('teatime', this)">Tea Time Cakes</button>
-      <button class="tab-btn" onclick="showTab('party', this)">Party Desserts</button>
-      <button class="tab-btn" onclick="showTab('others', this)">Other Desserts</button>
-      <button class="tab-btn" onclick="showTab('savoury', this)">Savoury Bakes</button>
-      <button class="tab-btn" onclick="showTab('grazing', this)">Grazing Table</button>
-    </div>
-
-    <!-- Celebration Cakes -->
-    <div class="menu-panel active" id="tab-celebration">
-      <div class="menu-category-header">Signature Flavours</div>
-      <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-name">Tiramisu</div><div class="menu-item-desc">Classic Italian-inspired coffee cream cake with mascarpone layers</div><div class="menu-item-footer"><span class="menu-price">&#8377;850</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">OG 46% Dark Chocolate</div><div class="menu-item-desc">Rich, intense dark chocolate with a velvety finish</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Chocolate Strawberry</div><div class="menu-item-desc">Decadent chocolate paired with fresh strawberry layers</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Vanilla Strawberry Nutella</div><div class="menu-item-desc">Fluffy vanilla, fresh strawberry and luscious Nutella</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Praline Cake</div><div class="menu-item-desc">Available in Chocolate or Vanilla with crunchy praline layers</div><div class="menu-item-footer"><span class="menu-price">&#8377;850</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
+  <main id="main" class="menu">
+    <div class="wrap page-head menu-intro">
+      <div>
+        <h1 tabindex="-1">The menu</h1>
+        <p>Tap <i class="ph-fill ph-whatsapp-logo wa-inline" aria-hidden="true"></i> to order one item straight away, or <i class="ph ph-plus-circle" aria-hidden="true"></i> to add several to one order.</p>
       </div>
-
-      <div class="menu-category-header">Classic &amp; Gourmet Flavours</div>
-      <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-name">Walnut &amp; Dark Chocolate</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Roasted Almond &amp; Dark Chocolate</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Nutella Rocher</div><div class="menu-item-footer"><span class="menu-price">&#8377;850</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">OG Chocolate &amp; Nutella</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Biscoff &amp; Chocolate</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Biscoff &amp; Vanilla</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Milk Chocolate &amp; Cashew Praline</div><div class="menu-item-footer"><span class="menu-price">&#8377;730</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Snickers Bomb</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">S'mores Cake</div><div class="menu-item-desc">Marshmallow &amp; Graham Crackers</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Chocolate Cherry</div><div class="menu-item-footer"><span class="menu-price">&#8377;950</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Coffee Caramel</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Caramel Crunch</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Blueberry Cream Cheese</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Lemon Blueberry</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Fresh Fruit (Seasonal)</div><div class="menu-item-footer"><span class="menu-price">&#8377;780</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Fresh Pineapple</div><div class="menu-item-footer"><span class="menu-price">&#8377;650</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Pistachio Strawberry</div><div class="menu-item-footer"><span class="menu-price">&#8377;850</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Rabri Gulab Jamun</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Rasmalai</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Rose Pistachio</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Kunafa Cake with OG Chocolate</div><div class="menu-item-footer"><span class="menu-price">&#8377;900</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Cookies &amp; Cream</div><div class="menu-item-footer"><span class="menu-price">&#8377;650</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Caf&eacute; Mocha</div><div class="menu-item-footer"><span class="menu-price">&#8377;750</span><span class="menu-weight">500g &middot; Starting price</span></div></div>
-      </div>
-      <div class="menu-note">Prices are starting prices and may vary with customisation. Custom designs, tiers, and special themes available on request.</div>
-    </div>
-
-    <!-- Cookies -->
-    <div class="menu-panel" id="tab-cookies">
-      <div class="menu-category-header">Tea Time Cookies</div>
-      <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-name">Classic Butter Cookies</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Almond Butter Sticks</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Date &amp; Almond Biscuits</div><div class="menu-item-footer"><span class="menu-price">&#8377;800</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Jeera / Salt / Masala Biscuits</div><div class="menu-item-footer"><span class="menu-price">&#8377;700</span><span class="menu-weight">500g</span></div></div>
-      </div>
-      <div class="menu-category-header">Chonky Cookies &mdash; Soft &middot; Chewy &middot; Indulgent</div>
-      <div class="menu-grid">
-        <div class="menu-item"><div class="bestseller-tag">Best Seller</div><div class="menu-item-name">Chocolate Chunk &amp; Sea Salt</div><div class="menu-item-footer"><span class="menu-price">&#8377;400</span><span class="menu-weight">300g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Double Chocolate</div><div class="menu-item-footer"><span class="menu-price">&#8377;450</span><span class="menu-weight">300g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Brookies</div><div class="menu-item-desc">Brownie + Cookie &mdash; the best of both worlds</div><div class="menu-item-footer"><span class="menu-price">&#8377;450</span><span class="menu-weight">300g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Lotus Biscoff Cookies</div><div class="menu-item-footer"><span class="menu-price">&#8377;500</span><span class="menu-weight">300g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Tiramisu Cookies</div><div class="menu-item-footer"><span class="menu-price">&#8377;500</span><span class="menu-weight">300g</span></div></div>
-      </div>
-    </div>
-
-    <!-- Tea Time Cakes -->
-    <div class="menu-panel" id="tab-teatime">
-      <p style="font-size:0.88rem;color:var(--brown);margin-bottom:1.5rem;opacity:0.7;">Comfort bakes for everyday cravings &mdash; all 500g unless noted</p>
-      <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-name">Iyengar Mawa Tea Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;550</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Chocolate Callet Butter Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;500</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Baklawa Tea Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;600</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Sugar-Free Oats &amp; Dates Cake</div><div class="menu-item-desc">Maida-Free</div><div class="menu-item-footer"><span class="menu-price">&#8377;650</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Wholewheat Jaggery Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;550</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Coconut Lime Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;500</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Almond Berry Crumble Tea Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;600</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Hazelnut Chocolate Tea Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;600</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Brownie Cake</div><div class="menu-item-footer"><span class="menu-price">&#8377;600</span><span class="menu-weight">350g</span></div></div>
-      </div>
-    </div>
-
-    <!-- Party Desserts -->
-    <div class="menu-panel" id="tab-party">
-      <div class="menu-note" style="margin-bottom:2rem;">Minimum order: 5 pieces per item</div>
-      <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-name">Blueberry Tarts</div><div class="menu-item-footer"><span class="menu-price">&#8377;130/pc</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Tiramisu Cups</div><div class="menu-item-footer"><span class="menu-price">&#8377;160/pc</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Boondi Gulab Jamun Tarts</div><div class="menu-item-footer"><span class="menu-price">&#8377;150/pc</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Chocolate Sea Salt Tarts</div><div class="menu-item-footer"><span class="menu-price">&#8377;110/pc</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Tres Leches</div><div class="menu-item-desc">Rasmalai / Classic / Cold Coffee</div><div class="menu-item-footer"><span class="menu-price">&#8377;200/pc</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Dulce de Leche Pudding</div><div class="menu-item-footer"><span class="menu-price">&#8377;150/pc</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Blueberry Cheesecake Cups</div><div class="menu-item-footer"><span class="menu-price">&#8377;130/pc</span></div></div>
-      </div>
-    </div>
-
-    <!-- Other Desserts -->
-    <div class="menu-panel" id="tab-others">
-      <div class="menu-category-header">Cheesecakes</div>
-      <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-name">Classic New York Cheesecake</div><div class="menu-item-footer"><span class="menu-price">&#8377;850</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Blueberry Cheesecake</div><div class="menu-item-footer"><span class="menu-price">&#8377;950</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Nutella Cheesecake</div><div class="menu-item-footer"><span class="menu-price">&#8377;950</span><span class="menu-weight">500g</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Biscoff Cheesecake</div><div class="menu-item-footer"><span class="menu-price">&#8377;950</span><span class="menu-weight">500g</span></div></div>
-      </div>
-      <div class="menu-category-header">Brownies</div>
-      <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-name">Signature Brownies</div><div class="menu-item-desc">Fudgy, dense, and utterly irresistible</div><div class="menu-item-footer"><span class="menu-price">&#8377;600</span><span class="menu-weight">4 pcs &middot; 350g</span></div></div>
-      </div>
-    </div>
-
-    <!-- Savoury -->
-    <div class="menu-panel" id="tab-savoury">
-      <div class="menu-note" style="margin-bottom:2rem;">Minimum order quantities (MOQ) applicable for all savoury items</div>
-      <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-name">Korean Garlic Buns</div><div class="menu-item-desc">Pillowy buns with garlicky, buttery goodness</div><div class="menu-item-footer"><span class="menu-price">&#8377;120/pc</span><span class="menu-weight">MOQ 6 pcs</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Spinach Corn Cheese Quiche</div><div class="menu-item-footer"><span class="menu-price">&#8377;85/pc</span><span class="menu-weight">MOQ 8 pcs</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Mushroom Cheese Quiche</div><div class="menu-item-footer"><span class="menu-price">&#8377;85/pc</span><span class="menu-weight">MOQ 8 pcs</span></div></div>
-        <div class="menu-item"><div class="menu-item-name">Focaccia</div><div class="menu-item-desc">Classic Italian flatbread with herbs</div><div class="menu-item-footer"><span class="menu-price">&#8377;400</span><span class="menu-weight">300g</span></div></div>
-      </div>
-    </div>
-
-    <!-- GRAZING TABLE -->
-    <div class="menu-panel" id="tab-grazing">
-
-      <!-- ── EVENT PHOTO CAROUSEL ── -->
-      <div class="grazing-event-label">A sneak peek into our recent grazing tables</div>
-      <div class="grazing-carousel-wrapper">
-        <div class="grazing-carousel-track-outer">
-          <div class="grazing-carousel-track" id="grazingTrack">
-            <div class="grazing-carousel-slide"><img src="35.jpeg" alt="Grazing table 1"></div>
-            <div class="grazing-carousel-slide"><img src="36.jpeg" alt="Grazing table 2"></div>
-            <div class="grazing-carousel-slide"><img src="37.jpeg" alt="Grazing table 3"></div>
-            <div class="grazing-carousel-slide"><img src="38.jpeg" alt="Grazing table 4"></div>
-            <div class="grazing-carousel-slide"><img src="39.jpeg" alt="Grazing table 5"></div>
-            <div class="grazing-carousel-slide"><img src="40.jpeg" alt="Grazing table 6"></div>
-            <div class="grazing-carousel-slide"><img src="41.jpeg" alt="Grazing table 7"></div>
-          </div>
+      <div class="planner-mini">
+        <div class="planner-field">
+          <label for="needDate"><i class="ph ph-calendar-heart" aria-hidden="true"></i> When do you need it?</label>
+          <input type="date" class="js-date" id="needDate" name="needDate">
         </div>
-        <div class="grazing-carousel-nav">
-          <button class="carousel-btn" id="grazingPrev" aria-label="Previous">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,18 9,12 15,6"/></svg>
-          </button>
-          <div class="carousel-dots" id="grazingDots"></div>
-          <button class="carousel-btn" id="grazingNext" aria-label="Next">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
-          </button>
+        <p class="planner-status" id="plannerStatus" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div class="menu-bar" id="menuBar">
+      <div class="wrap menu-bar-inner">
+        <nav class="cat-nav" id="catNav" aria-label="Menu categories"></nav>
+        <div class="search">
+          <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+          <label class="sr-only" for="menuSearch">Search the whole menu</label>
+          <input type="search" id="menuSearch" placeholder="Search, e.g. Biscoff" autocomplete="off">
         </div>
       </div>
-
-      <div class="grazing-package-banner">
-        <div class="grazing-package-left">
-          <div class="grazing-package-eyebrow">Curated Package</div>
-          <div class="grazing-package-title">Grazing Table Experience</div>
-          <div class="grazing-package-desc">3 Savoury &nbsp;+&nbsp; 2 Desserts &nbsp;+&nbsp; 1 Beverage per head &mdash; fully customisable from the options below.</div>
-        </div>
-        <div class="grazing-package-right">
-          <div class="grazing-price-tag">&#8377;700<span>/head</span></div>
-          <div class="grazing-moq">Minimum 15 people</div>
-          <div class="grazing-notice">1 week advance notice required</div>
-        </div>
-      </div>
-
-      <div class="grazing-includes">
-        <div class="grazing-includes-title">Package includes</div>
-        <div class="grazing-includes-items">
-          <span>Food</span>
-          <span>Set-up &amp; Decor</span>
-          <span>Food Styling</span>
-          <span>Decorative Beverage Cups</span>
-          <span>Stands &amp; Risers</span>
-          <span>Paper Cutlery &amp; Tissues</span>
-        </div>
-      </div>
-
-      <div class="menu-category-header">Desserts (Mini)</div>
-      <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-name">Doughnuts</div></div>
-        <div class="menu-item"><div class="menu-item-name">Berliners</div></div>
-        <div class="menu-item"><div class="menu-item-name">Pancakes</div></div>
-        <div class="menu-item"><div class="menu-item-name">Macarons</div></div>
-        <div class="menu-item"><div class="menu-item-name">Tiramisu Balls</div></div>
-        <div class="menu-item"><div class="menu-item-name">Vanilla Tarts with Fresh Fruits</div></div>
-        <div class="menu-item"><div class="menu-item-name">Cake Pops</div></div>
-        <div class="menu-item"><div class="menu-item-name">Cakesicles</div></div>
-        <div class="menu-item"><div class="menu-item-name">Cupcakes</div></div>
-        <div class="menu-item"><div class="menu-item-name">Muffins</div></div>
-        <div class="menu-item"><div class="menu-item-name">Boondi Gulab Jamun Tarts</div></div>
-        <div class="menu-item"><div class="menu-item-name">Brownies</div></div>
-        <div class="menu-item"><div class="menu-item-name">Granola Bars</div></div>
-        <div class="menu-item"><div class="menu-item-name">Bite Size Cakes</div></div>
-        <div class="menu-item"><div class="menu-item-name">Cookies</div></div>
-        <div class="menu-item"><div class="menu-item-name">Granola Crumble Parfait Cups</div></div>
-        <div class="menu-item"><div class="menu-item-name">Lotus Biscoff Cheesecake Cups</div></div>
-        <div class="menu-item"><div class="menu-item-name">Tres Leches</div></div>
-      </div>
-
-      <div class="menu-category-header">Beverages</div>
-      <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-name">Cold Coffee</div></div>
-        <div class="menu-item"><div class="menu-item-name">Masala Tea</div></div>
-        <div class="menu-item"><div class="menu-item-name">Hot Chocolate</div><div class="menu-item-desc">Made with couverture chocolate</div></div>
-        <div class="menu-item"><div class="menu-item-name">Chilli Guava</div></div>
-        <div class="menu-item"><div class="menu-item-name">Lime &amp; Mint Refresher</div></div>
-        <div class="menu-item"><div class="menu-item-name">Watermelon &amp; Chia Seeds Cooler</div></div>
-      </div>
-
-      <div class="menu-category-header">Savoury</div>
-      <div class="menu-grid">
-        <div class="menu-item"><div class="menu-item-name">Mini Korean Garlic Cream Cheese Buns</div></div>
-        <div class="menu-item"><div class="menu-item-name">Bombay Sandwich</div></div>
-        <div class="menu-item"><div class="menu-item-name">Cream Cheese, Dill &amp; Cucumber Sandwich</div><div class="menu-item-desc">Cut in squares or triangles</div></div>
-        <div class="menu-item"><div class="menu-item-name">Mini Calzone</div><div class="menu-item-desc">Olives, sweet corn, veggies, basil &amp; cheese</div></div>
-        <div class="menu-item"><div class="menu-item-name">Spinach &amp; Corn Quiche</div></div>
-        <div class="menu-item"><div class="menu-item-name">Mini Burger Sliders</div></div>
-        <div class="menu-item"><div class="menu-item-name">Chip &amp; Dip</div></div>
-        <div class="menu-item"><div class="menu-item-name">DIY Nachos Platter</div></div>
-        <div class="menu-item"><div class="menu-item-name">Paneer Skewers</div></div>
-        <div class="menu-item"><div class="menu-item-name">Dahi Papdi Chaat Cups</div></div>
-        <div class="menu-item"><div class="menu-item-name">Pani Puri Cups</div></div>
-        <div class="menu-item"><div class="menu-item-name">Tomato, Basil &amp; Parmesan Bruschetta</div></div>
-        <div class="menu-item"><div class="menu-item-name">Mini Pita Breads with Hummus</div></div>
-        <div class="menu-item"><div class="menu-item-name">Cheese Platter</div></div>
-        <div class="menu-item"><div class="menu-item-name">Exotic Fruits Platter</div></div>
-        <div class="menu-item"><div class="menu-item-name">Spaghetti Noodles Cups</div></div>
-        <div class="menu-item"><div class="menu-item-name">Mini Vada Pav</div></div>
-      </div>
-
-      <div class="menu-note" style="margin-top:2.5rem;">
-        <strong>How to book:</strong> Choose your 3 savoury + 2 dessert + 1 beverage combination and WhatsApp us at <strong>+91 89838 28666</strong> at least 1 week in advance. The package is fully customisable &mdash; mix and match from the options above. MOQ: 15 people.
-      </div>
-
     </div>
 
-  </section>
+    <div id="menuSections"></div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-center">&copy; 2026 BakeHaus by Khushi Lalwani &nbsp;&middot;&nbsp; All rights reserved &nbsp;&middot;&nbsp; 100% Eggless &nbsp;&middot;&nbsp; Prices subject to change &nbsp;&middot;&nbsp; Images for representation only &nbsp;&middot;&nbsp; Pre-orders only</div>
-    <div class="footer-social">
-      <a href="https://wa.me/918983828666" target="_blank" title="WhatsApp" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/bakehaus_by_khushi?igsh=MWQ3ZmwwZXJsdjZobg==" target="_blank" title="Instagram" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
-        </svg>
-      </a>
+    <div class="wrap empty" id="menuEmpty" hidden>
+      <i class="ph ph-cookie" aria-hidden="true"></i>
+      <h2>Nothing matches "<span id="emptyTerm"></span>"</h2>
+      <p>We often bake specials that aren't listed. Ask and we'll tell you what's possible.</p>
+      <a class="btn btn-wa" id="emptyAsk" href="https://wa.me/918983828666" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i><span>Enquire on WhatsApp</span></a>
     </div>
-  </footer>
+  </main>
 
-  <script>
-    /* ── TAB SWITCHING ── */
-    function showTab(name, btn) {
-      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      const panel = document.getElementById('tab-' + name);
-      if (panel) panel.classList.add('active');
-      btn.classList.add('active');
-      if (name === 'grazing') grazingCarousel.recalc();
-    }
+  <footer class="site-footer" id="siteFooter"></footer>
 
-    /* ── GRAZING CAROUSEL ── */
-    const grazingCarousel = (function() {
-      const track    = document.getElementById('grazingTrack');
-      const prevBtn  = document.getElementById('grazingPrev');
-      const nextBtn  = document.getElementById('grazingNext');
-      const dotsEl   = document.getElementById('grazingDots');
-      const slides   = track.querySelectorAll('.grazing-carousel-slide');
-      const total    = slides.length;
-      let current    = 0;
-      let autoTimer  = null;
-      let isDragging = false;
-      let startX     = 0;
-      let dragDelta  = 0;
-
-      slides.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        dot.addEventListener('click', () => goTo(i));
-        dotsEl.appendChild(dot);
-      });
-
-      function getSlideWidth() {
-        return slides[0].offsetWidth + 16;
-      }
-
-      function goTo(index) {
-        current = (index + total) % total;
-        track.style.transform = `translateX(-${current * getSlideWidth()}px)`;
-        dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) =>
-          d.classList.toggle('active', i === current));
-      }
-
-      function next() { goTo(current + 1); }
-      function prev() { goTo(current - 1); }
-
-      prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
-      nextBtn.addEventListener('click', () => { next(); resetAuto(); });
-
-      function startAuto() { autoTimer = setInterval(next, 3500); }
-      function resetAuto()  { clearInterval(autoTimer); startAuto(); }
-      startAuto();
-
-      function onDragStart(e) {
-        isDragging = true;
-        startX = e.touches ? e.touches[0].clientX : e.clientX;
-        track.style.transition = 'none';
-      }
-      function onDragMove(e) {
-        if (!isDragging) return;
-        dragDelta = (e.touches ? e.touches[0].clientX : e.clientX) - startX;
-        track.style.transform = `translateX(${-current * getSlideWidth() + dragDelta}px)`;
-      }
-      function onDragEnd() {
-        if (!isDragging) return;
-        isDragging = false;
-        track.style.transition = '';
-        if (dragDelta < -60)      next();
-        else if (dragDelta > 60)  prev();
-        else                      goTo(current);
-        dragDelta = 0;
-        resetAuto();
-      }
-
-      track.addEventListener('mousedown',  onDragStart);
-      track.addEventListener('mousemove',  onDragMove);
-      track.addEventListener('mouseup',    onDragEnd);
-      track.addEventListener('mouseleave', onDragEnd);
-      track.addEventListener('touchstart', onDragStart, { passive: true });
-      track.addEventListener('touchmove',  onDragMove,  { passive: true });
-      track.addEventListener('touchend',   onDragEnd);
-      track.addEventListener('mouseenter', () => clearInterval(autoTimer));
-      track.addEventListener('mouseleave', () => { if (!isDragging) startAuto(); });
-      window.addEventListener('resize',    () => goTo(current));
-
-      return { recalc: () => goTo(current) };
-    })();
-
-    /* ── SCROLL REVEAL ── */
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    /* ── MOBILE NAV ── */
-    const hamburger  = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const overlay    = document.getElementById('mobileOverlay');
-    function openMenu()  { hamburger.classList.add('open'); mobileMenu.classList.add('open'); overlay.style.display = 'block'; requestAnimationFrame(() => overlay.classList.add('open')); document.body.style.overflow = 'hidden'; }
-    function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; setTimeout(() => { if (!overlay.classList.contains('open')) overlay.style.display = 'none'; }, 300); }
-    hamburger.addEventListener('click', () => hamburger.classList.contains('open') ? closeMenu() : openMenu());
-    overlay.addEventListener('click', closeMenu);
-    document.querySelectorAll('.mobile-nav-links a, .mobile-menu-cta a').forEach(a => a.addEventListener('click', closeMenu));
-  </script>
+  <script src="assets/js/menu-data.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>

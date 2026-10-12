@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Grazing tables | BakeHaus by Khushi</title>
+  <meta name="description" content="Styled grazing tables from ₹750 per person, minimum 15 guests. Pick 3 savoury, 2 desserts and 1 beverage and send your plan on WhatsApp. Jalgaon, Maharashtra.">
+  <meta name="theme-color" content="#EEF1E6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121813" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://bakehausbykhushi.github.io/grazing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BakeHaus by Khushi">
+  <meta property="og:title" content="Grazing tables by BakeHaus">
+  <meta property="og:description" content="₹750 per person, from 15 guests. Build your table and send it on WhatsApp.">
+  <meta property="og:url" content="https://bakehausbykhushi.github.io/grazing.html">
+  <meta property="og:image" content="https://bakehausbykhushi.github.io/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BakeHaus by Khushi: eggless cakes and grazing tables">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="grazing">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header" id="siteHeader"></header>
+
+  <main id="main" class="grazing">
+    <div class="wrap">
+      <div class="grazing-top">
+        <div class="grazing-intro">
+          <h1 tabindex="-1">Grazing tables</h1>
+          <p class="grazing-lede">A styled spread for birthdays, house parties and office events. We bring the food, stands and decor, and set it all up.</p>
+          <div class="grazing-price">
+            <span class="gp-amount" id="gpAmount">₹750</span>
+            <span class="gp-per">per person</span>
+          </div>
+          <ul class="grazing-facts" id="grazingFacts"></ul>
+          <h2 class="includes-title">Every table includes</h2>
+          <ul class="includes" id="grazingIncludes"></ul>
+        </div>
+        <div class="reel-wrap">
+          <div class="grazing-reel" id="grazingReel" role="region" aria-label="Photos of recent grazing tables" tabindex="0"></div>
+          <div class="reel-controls">
+            <span class="reel-count" id="reelCount" aria-hidden="true"></span>
+            <button type="button" class="icon-btn" id="reelPause" aria-pressed="false" aria-label="Pause slideshow"><i class="ph ph-pause" aria-hidden="true"></i></button>
+            <button type="button" class="icon-btn" id="reelPrev" aria-label="Previous photo"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
+            <button type="button" class="icon-btn" id="reelNext" aria-label="Next photo"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <section class="builder" id="builder" aria-labelledby="builder-title">
+        <div class="builder-head">
+          <h2 id="builder-title">Build your table</h2>
+          <p>Choose <strong>3 savoury</strong>, <strong>2 desserts</strong> and <strong>1 beverage</strong>. Want a different mix? Just tell us in the message.</p>
+        </div>
+        <div class="builder-steps" role="tablist" aria-label="Grazing table courses" id="builderTabs"></div>
+        <div class="builder-panels" id="builderPanels"></div>
+        <div class="builder-summary" id="builderSummary">
+          <div class="bs-picks" id="bsPicks"></div>
+          <div class="bs-date">
+            <label class="bs-label" for="builderDate">Event date</label>
+            <input type="date" class="js-date" id="builderDate">
+          </div>
+          <div class="bs-guests">
+            <span class="bs-label" id="guestsLabel">Guests</span>
+            <div class="stepper" role="group" aria-labelledby="guestsLabel">
+              <button type="button" class="step-btn" id="guestsMinus" aria-label="Fewer guests"><i class="ph ph-minus" aria-hidden="true"></i></button>
+              <input type="number" id="guests" inputmode="numeric" min="15" value="15" aria-label="Number of guests">
+              <button type="button" class="step-btn" id="guestsPlus" aria-label="More guests"><i class="ph ph-plus" aria-hidden="true"></i></button>
+            </div>
+            <span class="bs-hint">Minimum 15</span>
+          </div>
+          <div class="bs-total">
+            <span class="bs-label">Estimate</span>
+            <strong id="bsTotal">₹11,250</strong>
+          </div>
+          <a class="btn btn-wa bs-send" id="bsSend" href="#" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i><span>Send on WhatsApp</span></a>
+          <p class="bs-note" id="bsNote" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script src="assets/js/menu-data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
