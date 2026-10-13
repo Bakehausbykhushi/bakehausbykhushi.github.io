@@ -16,7 +16,7 @@ window.BAKEHAUS = {
   phoneDisplay: "+91 89838 28666",
   instagram: "https://www.instagram.com/bakehaus_by_khushi",
   instagramHandle: "@bakehaus_by_khushi",
-  reviews: "https://shorturl.at/Zg7Un",
+  reviews: "https://share.google/D3yciayrJRPA4KCX8",
   upi: "khushilalwani1515@okhdfcbank",
   address: "Anand Niwas, Sewa Mandal Road, New Joshi Colony, Sindhi Colony, Jalgaon, Maharashtra 425001",
   hours: "Open every day, 10 AM to 7 PM",
