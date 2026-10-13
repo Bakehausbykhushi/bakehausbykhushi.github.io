@@ -332,7 +332,7 @@ window.BAKEHAUS = {
             contents: ["Desi ghee nankhatai", "Spiced cashews", "Kaju katli macarons", "Bishop's nut tea cake", "Scoopable cookie tin", "Beetroot chips"] },
           { name: "The Indulgence Trunk", price: 2300, img: "diwali-indulgence-trunk",
             contents: ["Signature brownie bites × 9", "Kaju katli macarons", "Spiced cashews", "Beetroot chips", "Desi ghee nankhatai"] },
-          { name: "Potli & Cookie Tin", desc: "A festive potli with a tin of our cookies", img: "diwali-potli-tin", photos: ["diwali-potli-tin", "cookie-tin-assorted"] }
+          { name: "Potli & Cookie Tin", price: 1099, desc: "A festive potli with a tin of our cookies", img: "diwali-potli-tin", photos: ["diwali-potli-tin", "cookie-tin-assorted"] }
         ]
       },
       {

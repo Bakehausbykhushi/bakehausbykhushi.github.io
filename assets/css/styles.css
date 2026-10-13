@@ -137,7 +137,7 @@ p { margin: 0; text-wrap: pretty; }
 /* ---------- Date planner ---------- */
 .planner-field { display: grid; gap: 6px; }
 .planner-field label, .field label { font-size: 0.8rem; font-weight: 600; color: var(--ink-2); }
-input[type="date"], input[type="search"], input[type="number"], textarea {
+input[type="date"], input[type="time"], input[type="text"], input[type="tel"], input[type="search"], input[type="number"], textarea {
   border: 1.5px solid var(--line); background: var(--bg); border-radius: 999px; min-height: 48px; padding: 0 18px; width: 100%;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -649,7 +649,7 @@ h1:focus { outline: none; }
 .bs-date { display: grid; }
 .bs-date input { background: var(--surface); }
 @media (min-width: 760px) {
-  .builder-summary { grid-template-columns: 1.2fr auto auto auto; }
+  .builder-summary { grid-template-columns: 1fr auto auto; }
 }
 
 /* Order page */
@@ -944,3 +944,22 @@ body::after {
 
 /* Home bento: customised cakes, cheesecakes and savoury also span two columns so every row is full */
 .ctile-custom-cakes, .ctile-cheesecakes, .ctile-savoury { grid-column: span 2; }
+
+/* Grazing builder: event details */
+.bs-event { grid-column: 1 / -1; border: 0; margin: 0; padding: 0; display: grid; gap: 12px; min-width: 0; }
+.bs-event legend { padding: 0; margin-bottom: 10px; }
+.bs-event .field label { font-size: 0.8rem; font-weight: 600; color: var(--ink-2); }
+.bs-event input { background: var(--surface); }
+@media (min-width: 760px) {
+  .bs-event { grid-template-columns: 1fr 1fr; column-gap: 16px; }
+  .bs-event legend { grid-column: 1 / -1; }
+  .bs-event .field-wide { grid-column: 1 / -1; }
+}
+
+/* Dates read "Tue 13 Oct 2026" on every device: the native field's text is hidden under a formatted label */
+.date-wrap { position: relative; display: block; }
+.date-wrap input[type="date"] { color: transparent; caret-color: transparent; cursor: pointer; }
+.date-wrap input[type="date"]::-webkit-datetime-edit { color: transparent; }
+.date-display { position: absolute; left: 18px; right: 44px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.date-display.is-empty { color: var(--ink-3); }
+.date-wrap input[type="date"]:focus-visible + .date-display { color: var(--ink); }

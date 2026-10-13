@@ -654,11 +654,20 @@
       "Savoury: " + list("savoury"),
       "Desserts: " + list("dessert"),
       "Beverage: " + list("beverage"),
-      "Estimate: " + rupees(guests * G.pricePerHead) + " (" + rupees(G.pricePerHead) + " per person)", "",
-      "Venue / area:",
-      "Event and time:", "",
-      "Please confirm availability. Thank you!"
-    ].join("\n");
+      "Estimate: " + rupees(guests * G.pricePerHead) + " (" + rupees(G.pricePerHead) + " per person)", ""
+    ].concat(eventLines()).concat(["", "Please confirm availability. Thank you!"]).join("\n");
+  }
+  // Event details typed into the builder; blank fields stay as prompts to fill in on WhatsApp.
+  // Kept in memory only (never stored), since they include an address and phone number.
+  function eventLines() {
+    return $$(".js-event").map(function (inp) {
+      var v = inp.value.trim();
+      if (v && inp.type === "time") {
+        var p = v.split(":"), h = +p[0];
+        v = (h % 12 || 12) + ":" + p[1] + " " + (h < 12 ? "AM" : "PM");
+      }
+      return inp.dataset.label + ": " + v;
+    });
   }
 
   function setCourse(id, focus) {
@@ -748,6 +757,7 @@
     $("#guestsMinus").addEventListener("click", function () { setGuests(guests - 1); });
     $("#guestsPlus").addEventListener("click", function () { setGuests(guests + 1); });
     $("#guests").addEventListener("change", function (e) { setGuests(e.target.value); });
+    $$(".js-event").forEach(function (inp) { inp.addEventListener("input", function () { $("#bsSend").href = waLink(builderMessage()); }); });
     setCourse("savoury");
   }
 
@@ -908,14 +918,32 @@
   // DATE PLANNER (menu page, grazing builder and order sheet share one date)
   // =================================================================
   var statusEl = $("#plannerStatus");
+  // Date boxes show "Tue 13 Oct 2026" whatever the device locale, so Indian and US visitors read the same date.
+  // The native input stays underneath (calendar picker, keyboard, accessibility); only its text is hidden.
   $$(".js-date").forEach(function (inp) {
     inp.min = todayISO();
+    var wrap = document.createElement("span");
+    wrap.className = "date-wrap";
+    inp.parentNode.insertBefore(wrap, inp);
+    wrap.appendChild(inp);
+    wrap.insertAdjacentHTML("beforeend", '<span class="date-display" aria-hidden="true"></span>');
     inp.addEventListener("change", function () { setDate(inp.value); });
+    inp.addEventListener("input", showDates);
+    inp.addEventListener("click", function () { try { if (inp.showPicker) inp.showPicker(); } catch (e) { /* not supported */ } });
   });
+  function showDates() {
+    $$(".js-date").forEach(function (inp) {
+      var disp = inp.parentNode.querySelector(".date-display");
+      if (!disp) return;
+      disp.textContent = inp.value ? prettyDate(inp.value) : "Select a date";
+      disp.classList.toggle("is-empty", !inp.value);
+    });
+  }
 
   function renderDate() {
     if (state.date && daysUntil(state.date) < 0) { state.date = ""; save("session", "bh-date", ""); }
     $$(".js-date").forEach(function (inp) { inp.value = state.date || ""; });
+    showDates();
     if (statusEl) {
       var n = daysUntil(state.date), msg = "", cls = "";
       if (n === null) msg = "";
