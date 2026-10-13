@@ -10,10 +10,10 @@
   // Real pixel sizes: [small width, small height, large width]. Most photos are 540x720 / 960+ wide,
   // so only the exceptions are listed. Lets the browser reserve space and pick the right file.
   var DIMS = {
-    "brownie-box-nine": [540, 720, 1086], "brownie-box-ribbon": [540, 720, 1086], "cake-fresh-fruit": [540, 720, 1200],
+    "brownie-box-nine": [540, 720, 1086], "brownie-box-ribbon": [540, 720, 1086], "carrot-cake": [540, 720, 1200],
     "cake-gift-box": [540, 720, 1200], "cake-lambeth-birthday": [540, 720, 1086], "cake-lambeth-fifty": [540, 720, 1086],
     "cake-tiered-ruffle": [540, 720, 1200], "cake-tiramisu-monogram": [540, 720, 1200], "canvas-cheese-board": [540, 720, 1200],
-    "cookie-cups-box": [540, 720, 1086], "cookie-tin-assorted": [540, 720, 1086], "cookie-tins-scoopable": [540, 720, 960],
+    "cookie-cups-box": [540, 720, 1086], "cookie-tin-assorted": [540, 720, 1086], "callet-butter-cake": [540, 720, 960], "diwali-collection": [540, 720, 1086], "diwali-indulgence-trunk": [540, 720, 540],
     "diwali-heritage-box": [540, 720, 1086], "diwali-potli-basket": [540, 720, 1086], "diwali-potli-tin": [540, 720, 1086],
     "diwali-wicker-hamper": [540, 720, 1086], "focaccia": [540, 720, 960], "grazing-cake-stand": [720, 612, 1600],
     "grazing-dips": [720, 480, 1600], "grazing-garden": [720, 480, 1600], "grazing-ladder": [540, 720, 1200],
@@ -189,7 +189,15 @@
   }
   function itemMessage(it, cat) {
     if (kindOf(it, cat) === "hamper") {
-      return ["Hi BakeHaus! I'm interested in the *" + it.name + "* for " + (DW ? DW.festival : "gifting") + ".", "", "How many:", dateLine(), "Budget (optional):", "Gifting for: family / friends / corporate", "", "Please share the price and what's inside. Thank you!"].join("\n");
+      var occasion = DW ? DW.festival : "gifting";
+      // Priced hampers are ordered; price-on-request ones are enquired about.
+      return (it.price != null
+        ? ["Hi BakeHaus! I'd like to order *" + it.name + "* (" + rupees(it.price) + ") for " + occasion + ".", "", "How many:", dateLine(), "Gifting for: family / friends / corporate", "GST bill needed: yes / no", "Pickup or delivery:", "", "Please confirm availability. Thank you!"]
+        : ["Hi BakeHaus! I'm interested in the *" + it.name + "* for " + occasion + ".", "", "How many:", dateLine(), "Budget (optional):", "Gifting for: family / friends / corporate", "", "Please share the price and what's inside. Thank you!"]
+      ).join("\n");
+    }
+    if (kindOf(it, cat) === "custom") {
+      return ["Hi BakeHaus! I'd like a *customised cake*.", "", "Occasion:", dateLine(), "Weight (kg):", "Flavour:", "Design / theme:", "Message on cake:", "I'll share a reference photo here.", "Pickup or delivery:", "", "Please share the price. Thank you!"].join("\n");
     }
     var detail = [it.size, priceLabel(it)].filter(Boolean).join(", ");
     return ["Hi BakeHaus! I'd like to order:", "*" + it.name + "* (" + cat.short + ")", detail, "", dateLine()]
@@ -233,13 +241,13 @@
       var prices = [];
       c.groups.forEach(function (g) { g.items.forEach(function (it) { if (it.price) prices.push(it.price); }); });
       var starting = c.groups.some(function (g) { return g.items.some(function (it) { return it.from; }); });
-      return { href: "menu.html#" + c.id, title: c.title, photo: (c.photos || [])[0], min: Math.min.apply(null, prices), max: Math.max.apply(null, prices), starting: starting, id: c.id };
+      return { href: "menu.html#" + c.id, title: c.title, photo: (c.photos || [])[0], min: Math.min.apply(null, prices), max: Math.max.apply(null, prices), starting: starting, priceText: c.priceText, id: c.id };
     });
     tiles.splice(2, 0, { href: "grazing.html", title: "Grazing tables", photo: D.grazing.photos[0], perHead: D.grazing.pricePerHead, id: "grazing" });
     tilesEl.innerHTML = tiles.map(function (t) {
       var d = t.photo ? dims(t.photo) : null;
       // Only categories marked from: true are starting prices; the rest show their fixed price range.
-      var price = t.perHead ? rupees(t.perHead) + " per person"
+      var price = t.priceText ? t.priceText : t.perHead ? rupees(t.perHead) + " per person"
         : t.starting ? "Starting at " + rupees(t.min) + ", varies with design"
         : t.min === t.max ? rupees(t.min) : rupees(t.min) + " to " + rupees(t.max);
       return '<a class="ctile ctile-' + t.id + (t.photo ? "" : " ctile-plain") + ' reveal" href="' + t.href + '">' +
@@ -300,10 +308,12 @@
     var acts = it.link
       ? '<a class="btn btn-ghost btn-sm" href="' + it.link + '">See on the menu <i class="ph ph-arrow-right" aria-hidden="true"></i></a>'
       : '<div class="acts"><button type="button" class="act act-add" data-add="' + key + '" aria-pressed="false" aria-label="Add ' + esc(it.name) + ' to your order"><i class="ph ph-plus" aria-hidden="true"></i></button>' +
-        '<a class="btn btn-wa btn-sm act-wa" data-key="' + key + '" href="' + waLink(itemMessage(it, cat)) + '" target="_blank" rel="noopener" aria-label="Enquire about ' + esc(it.name) + ' on WhatsApp"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i><span>Enquire</span></a></div>';
+        '<a class="btn btn-wa btn-sm act-wa" data-key="' + key + '" href="' + waLink(itemMessage(it, cat)) + '" target="_blank" rel="noopener" aria-label="' + (it.price != null ? "Order " : "Enquire about ") + esc(it.name) + ' on WhatsApp"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i><span>' + (it.price != null ? "Order" : "Enquire") + "</span></a></div>";
     LB_SETS["gift-" + i] = shots.map(function (p) { return { img: p, alt: it.name }; });
     return '<article class="gift-card reveal">' + photo + '<div class="gift-body"><h3>' + esc(it.name) + "</h3>" +
-      (it.desc ? "<p>" + esc(it.desc) + "</p>" : "") + '<div class="gift-foot">' + price + acts + "</div></div></article>";
+      (it.desc ? "<p>" + esc(it.desc) + "</p>" : "") +
+      (it.contents ? '<ul class="gift-contents" aria-label="What is inside">' + it.contents.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul>" : "") +
+      '<div class="gift-foot">' + price + acts + "</div></div></article>";
   }
 
   var festiveEl = $("#festiveMain");
@@ -324,6 +334,7 @@
         '<div class="gifts' + (gi > 0 ? " gifts-sm" : "") + '">' + g.items.map(function (it) { return giftCardHTML(it, DW, n++); }).join("") + "</div></section>";
     }).join("");
     $("#fsCorporate").hidden = !DW.corporate;
+    if (DW.corporateText) $("#fsCorporateText").textContent = DW.corporateText;
     var fsMsg = ["Hi BakeHaus! I'd like to know more about your " + DW.title + ".", "", "How many:", dateLine(), "Gifting for: family / friends / corporate", "", "Thank you!"].join("\n");
     var corpMsg = ["Hi BakeHaus! I'm looking for " + DW.festival + " corporate gifting.", "", "Company:", "Number of hampers:", "Budget per hamper:", dateLine(), "", "Please share options. Thank you!"].join("\n");
     $$("[data-wa-festive]").forEach(function (a) { a.href = waLink(a.dataset.waFestive === "corporate" ? corpMsg : fsMsg); });
@@ -425,10 +436,26 @@
       body = headHTML(cat) + '<div class="cat-body">' + stackHTML(cat, "(min-width: 900px) 40vw, 100vw") + '<div class="cat-groups">' + groups + "</div></div>";
       return open + flip + attrs + body + nextHTML(i) + "</section>";
     }
+    if (cat.layout === "custom") {
+      // Price-per-kg card with one WhatsApp enquiry, beside a grid of past designs.
+      var customKey = cat.id + "--enquiry";
+      ITEMS[customKey] = { it: { name: cat.title, kind: "custom" }, cat: cat, group: null };
+      var search = [cat.title, cat.blurb, cat.keywords || ""].join(" ").toLowerCase();
+      body = headHTML(cat) + '<div class="cat-body">' +
+        '<div class="custom-card" data-search="' + esc(search) + '"><p class="custom-price">' + esc(cat.priceText) + '</p><p class="custom-note">' + esc(cat.priceNote) + "</p>" +
+        '<ul class="custom-steps"><li><i class="ph ph-image" aria-hidden="true"></i>Send a reference photo or describe your idea</li>' +
+        '<li><i class="ph ph-scales" aria-hidden="true"></i>Pick the weight and flavour</li>' +
+        '<li><i class="ph ph-check-circle" aria-hidden="true"></i>We confirm the design and final price</li></ul>' +
+        '<a class="btn btn-wa act-wa" data-key="' + customKey + '" href="' + waLink(itemMessage(ITEMS[customKey].it, cat)) + '" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i><span>Enquire on WhatsApp</span></a></div>' +
+        '<div class="custom-grid">' + photos.map(function (p, j) {
+          return '<button type="button" class="custom-shot" data-lb-set="' + cat.id + '" data-lb-i="' + j + '" aria-label="View customised cake ' + (j + 1) + '"><img src="' + sm(p) + '" alt="" loading="lazy" width="540" height="720"></button>';
+        }).join("") + "</div></div>";
+      return open + attrs + body + nextHTML(i) + "</section>";
+    }
     if (cat.layout === "tiles") {
       var p0 = photos[0], d0 = dims(p0);
-      body = headHTML(cat) + '<div class="cat-body"><div class="tiles-photo"><img src="' + sm(p0) + '" srcset="' + srcset(p0) + '" sizes="(min-width: 1000px) 40vw, 100vw" alt="Scoopable cookies baked in gold tins" loading="lazy" width="' + d0[0] + '" height="' + d0[1] + '">' +
-        '<button type="button" data-lb-set="' + cat.id + '" data-lb-i="0" aria-label="View cookie tin photos"></button></div>' +
+      body = headHTML(cat) + '<div class="cat-body"><div class="tiles-photo"><img src="' + sm(p0) + '" srcset="' + srcset(p0) + '" sizes="(min-width: 1000px) 40vw, 100vw" alt="' + esc(cat.title) + '" loading="lazy" width="' + d0[0] + '" height="' + d0[1] + '">' +
+        '<button type="button" data-lb-set="' + cat.id + '" data-lb-i="0" aria-label="View ' + esc(cat.title) + ' photos"></button></div>' +
         '<div class="tiles">' + cat.groups[0].items.map(function (it) { return itemHTML(it, cat, cat.groups[0]); }).join("") + "</div></div>";
       return open + attrs + body + nextHTML(i) + "</section>";
     }

@@ -33,7 +33,7 @@ window.BAKEHAUS = {
       note: "Prices are for 500g and are starting prices. Custom designs, tiers and themes on request.",
       kind: "cake",
       layout: "feature",
-      photos: ["cake-tiered-ruffle", "cake-tiramisu-monogram", "cake-strawberry-bow", "cake-princess-tiered", "cake-lambeth-fifty", "cake-heart-red"],
+      photos: ["cake-strawberry-bow", "cake-tiramisu-monogram", "cake-biscoff-drip", "cake-chocolate-ten", "carrot-cake"],
       groups: [
         {
           title: "Signature flavours",
@@ -63,7 +63,8 @@ window.BAKEHAUS = {
             { name: "Caramel Crunch", size: "500g", price: 700, from: true },
             { name: "Blueberry Cream Cheese", size: "500g", price: 750, from: true },
             { name: "Lemon Blueberry", size: "500g", price: 800, from: true },
-            { name: "Fresh Fruit (Seasonal)", size: "500g", price: 780, from: true, img: "cake-fresh-fruit" },
+            { name: "Fresh Fruit (Seasonal)", size: "500g", price: 780, from: true },
+            { name: "Carrot Cake", size: "500g", price: 900, from: true, img: "carrot-cake" },
             { name: "Fresh Pineapple", size: "500g", price: 650, from: true },
             { name: "Pistachio Strawberry", size: "500g", price: 850, from: true },
             { name: "Rabri Gulab Jamun", size: "500g", price: 700, from: true },
@@ -77,6 +78,21 @@ window.BAKEHAUS = {
       ]
     },
     {
+      /* Customised cakes: priced per kg by design, so there are no fixed items.
+         priceText is shown instead of item prices; photos fill the design grid. */
+      id: "custom-cakes",
+      title: "Customised cakes",
+      short: "Custom cakes",
+      blurb: "Birthdays, weddings, baby showers, milestones. Share your idea or a reference photo and we'll design the cake around it.",
+      priceText: "₹1,600 to ₹2,200 per kg",
+      priceNote: "Depending on the design and flavour",
+      kind: "custom",
+      layout: "custom",
+      keywords: "custom customised customized theme design fondant tier tiered birthday wedding anniversary engagement kids baby shower photo per kg",
+      photos: ["cake-tiered-ruffle", "cake-princess-tiered", "cake-gift-box", "cake-baby-boy", "cake-lambeth-fifty", "cake-peacock", "cake-number-fifty", "cake-heart-floral"],
+      groups: []
+    },
+    {
       id: "cookie-tins",
       title: "Signature cookie tins",
       short: "Cookie tins",
@@ -85,7 +101,7 @@ window.BAKEHAUS = {
       keywords: "gift gifting scoop cookie tin",
       kind: "tin",
       layout: "tiles",
-      photos: ["cookie-tins-scoopable", "cookie-tin-assorted"],
+      photos: ["cookie-cups-box"],
       groups: [
         {
           items: [
@@ -127,7 +143,7 @@ window.BAKEHAUS = {
       blurb: "Crisp tea time biscuits and big, chewy chonky cookies. Both make easy gifts.",
       kind: "pack",
       layout: "split",
-      photos: ["cookie-cups-box", "cookies-chocolate-chunk"],
+      photos: ["cookies-chocolate-chunk"],
       groups: [
         {
           title: "Chonky cookies",
@@ -161,12 +177,12 @@ window.BAKEHAUS = {
       note: "All 500g unless noted.",
       kind: "loaf",
       layout: "feature",
-      photos: ["oats-dates-loaf"],
+      photos: ["callet-butter-cake", "oats-dates-loaf"],
       groups: [
         {
           items: [
             { name: "Iyengar Mawa Tea Cake", size: "500g", price: 550 },
-            { name: "Chocolate Callet Butter Cake", size: "500g", price: 600 },
+            { name: "Chocolate Callet Butter Cake", size: "500g", price: 600, img: "callet-butter-cake" },
             { name: "Bishop's Nut Tea Cake", desc: "Packed with nuts and dried fruit", size: "500g", price: 750, tag: "New" },
             { name: "Sugar-Free Oats & Dates Cake", desc: "Maida-free", size: "500g", price: 650, img: "oats-dates-loaf", keywords: "sugar free sugarfree healthy no sugar" },
             { name: "Wholewheat Jaggery Cake", size: "500g", price: 550 },
@@ -301,32 +317,38 @@ window.BAKEHAUS = {
     headline: "Diwali hampers,",
     headlineAccent: "made in-house.",
     bannerTitle: "Diwali hampers are here",
-    bannerText: "Now taking orders for family, friends and corporate gifting.",
+    bannerText: "Order by 25 October. Hampers from ₹560, with GST bills for corporate gifting.",
     bannerButton: "See the hampers",
-    facts: ["Now taking orders", "Beautifully packaged", "Corporate gifting welcome"],
+    facts: ["Last order date: 25 October", "GST bills for corporate orders", "Beautifully packaged"],
     corporate: true,
-    intro: "This Diwali, we've curated hampers with our signature bestsellers, handcrafted treats, gourmet snacks and festive gifting options. All made in-house and beautifully packaged to make your gifting extra special.",
-    photos: ["diwali-wicker-hamper", "diwali-heritage-box", "diwali-potli-tin"],
+    corporateText: "Tell us how many hampers you need and your budget, and we'll put together options. GST bills are provided for corporate orders.",
+    intro: "Thoughtfully curated Diwali hampers for you and your loved ones. Our signature bestsellers, handcrafted treats and gourmet snacks, all made in-house and beautifully packaged.",
+    photos: ["diwali-collection", "diwali-indulgence-trunk", "diwali-heritage-box"],
     groups: [
       {
         title: "The hampers",
         items: [
-          { name: "Festive Basket Hamper", desc: "A woven basket with jars of festive treats and gourmet snacks, finished with a potli or tulle and the BakeHaus ribbon", img: "diwali-wicker-hamper", photos: ["diwali-wicker-hamper", "diwali-potli-basket"] },
-          { name: "Heritage Gift Box", desc: "Six assorted cookie cups in our printed heritage gift box", img: "diwali-heritage-box", photos: ["diwali-heritage-box", "cookie-cups-box"] },
-          { name: "Potli & Cookie Tin", desc: "A festive potli with a tin of our chonky cookies", img: "diwali-potli-tin" }
+          { name: "The Gourmet Affair", price: 2400, img: "diwali-wicker-hamper", photos: ["diwali-wicker-hamper", "diwali-potli-basket"],
+            contents: ["Desi ghee nankhatai", "Spiced cashews", "Kaju katli macarons", "Bishop's nut tea cake", "Scoopable cookie tin", "Beetroot chips"] },
+          { name: "The Indulgence Trunk", price: 2300, img: "diwali-indulgence-trunk",
+            contents: ["Signature brownie bites × 9", "Kaju katli macarons", "Spiced cashews", "Beetroot chips", "Desi ghee nankhatai"] },
+          { name: "Potli & Cookie Tin", desc: "A festive potli with a tin of our cookies", img: "diwali-potli-tin", photos: ["diwali-potli-tin", "cookie-tin-assorted"] }
         ]
       },
       {
-        title: "Also lovely for gifting",
+        title: "Gift boxes",
         items: [
-          { name: "Brownie Gift Box", desc: "Our signature brownies in a festive gift box, tied with the BakeHaus ribbon", img: "brownie-box-ribbon" },
-          { name: "Scoopable Cookie Tins", desc: "Six flavours, ₹900 to ₹1,000 a tin", img: "cookie-tins-scoopable", link: "menu.html#cookie-tins" }
+          { name: "The Cookie Vault", price: 1280, desc: "Six assorted flavours of our signature scoopable cookie tins", img: "diwali-heritage-box", photos: ["diwali-heritage-box", "cookie-cups-box"],
+            contents: ["Classic", "Red velvet", "Pretzel crunch", "Biscoff", "Ferrero rocher", "Double chocolate"] },
+          { name: "The Brownie Khazana", price: 560, desc: "A mithai box reimagined: our signature brownie as bite-sized pieces with assorted toppings", img: "brownie-box-ribbon", photos: ["brownie-box-ribbon", "brownie-box-nine"] }
         ]
       }
     ]
   },
 
   gallery: [
+    { img: "diwali-collection", alt: "The BakeHaus Diwali collection: cookie vault, gourmet basket, brownie box and potli", cat: "festive" },
+    { img: "diwali-indulgence-trunk", alt: "The Indulgence Trunk with brownie bites, macarons, cashews, beetroot chips and nankhatai", cat: "festive" },
     { img: "diwali-wicker-hamper", alt: "Diwali wicker basket hamper with jars of treats", cat: "festive" },
     { img: "diwali-heritage-box", alt: "Teal printed BakeHaus gift box with mini tins", cat: "festive" },
     { img: "diwali-potli-basket", alt: "Festive basket hamper styled with an orange potli", cat: "festive" },
@@ -334,7 +356,7 @@ window.BAKEHAUS = {
     { img: "cake-tiramisu-monogram", alt: "Tiramisu charlotte cake with stencilled initials", cat: "cakes" },
     { img: "grazing-garden", alt: "Outdoor grazing table with mini desserts on tiered stands", cat: "grazing" },
     { img: "cake-gift-box", alt: "White cake topped with a red fondant gift bow", cat: "cakes" },
-    { img: "cookie-tins-scoopable", alt: "Scoopable chocolate chip cookies baked in gold tins", cat: "sweets" },
+    { img: "callet-butter-cake", alt: "Chocolate callet butter cakes baked in tins", cat: "sweets" },
     { img: "cake-vintage-pink", alt: "Pink vintage piped cake topped with strawberries", cat: "cakes" },
     { img: "mini-tart-cakes-orange", alt: "Mini tart cakes with orange and berries", cat: "sweets" },
     { img: "grazing-round-table", alt: "Round grazing table with dips, sandwiches and desserts", cat: "grazing" },
@@ -354,12 +376,12 @@ window.BAKEHAUS = {
     { img: "cake-princess-tiered", alt: "Three tier pink princess cake with castle topper", cat: "cakes" },
     { img: "canvas-cheese-board", alt: "Canvas cheese board with crackers on an easel", cat: "grazing" },
     { img: "cake-roses", alt: "Pink cake topped with sculpted roses", cat: "cakes" },
-    { img: "cookie-tin-assorted", alt: "Tin of assorted chonky cookies", cat: "sweets" },
+    { img: "cookie-tin-assorted", alt: "Tin of assorted cookies from the potli hamper", cat: "festive" },
     { img: "cake-orange-floral", alt: "Cream cake with orange slices and flowers", cat: "cakes" },
     { img: "quiche-spinach-corn", alt: "Spinach corn quiches", cat: "savoury" },
     { img: "cake-baby-boy", alt: "Blue baby shower cake with teddy bears and rainbows", cat: "cakes" },
     { img: "grazing-ladder", alt: "Grazing table with a wooden ladder stand and doughnuts", cat: "grazing" },
-    { img: "cake-fresh-fruit", alt: "Fresh fruit layer cake with flowers", cat: "cakes" },
+    { img: "carrot-cake", alt: "Carrot cake topped with fresh fruit and flowers", cat: "cakes" },
     { img: "brownie-box-ribbon", alt: "Diwali brownie gift box tied with a BakeHaus ribbon", cat: "festive" },
     { img: "cake-two-tier", alt: "Two tier white cake with a sketch design", cat: "cakes" },
     { img: "mini-tart-cakes-hazelnut", alt: "Hazelnut praline mini tart cakes", cat: "sweets" },
@@ -372,7 +394,7 @@ window.BAKEHAUS = {
     { img: "cake-peacock", alt: "Peacock themed cake with balloon topper", cat: "cakes" },
     { img: "grazing-box", alt: "Grazing box with dips, pita and bites", cat: "grazing" },
     { img: "cake-heart-floral", alt: "Heart cake with flower ring for a one-month celebration", cat: "cakes" },
-    { img: "cookie-cups-box", alt: "Box of six cookie cups", cat: "sweets" },
+    { img: "cookie-cups-box", alt: "Six scoopable cookie tins in assorted flavours", cat: "sweets" },
     { img: "cake-vintage-white", alt: "White vintage piped cake with strawberries", cat: "cakes" },
     { img: "grazing-stand", alt: "Wooden grazing stand with flowers and treats", cat: "grazing" },
     { img: "cake-chocolate-ten", alt: "Chocolate cake with a gold number 10", cat: "cakes" },
