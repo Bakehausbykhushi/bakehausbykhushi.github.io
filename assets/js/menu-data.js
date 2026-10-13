@@ -213,7 +213,7 @@ window.BAKEHAUS = {
       keywords: "cheesecake brownie",
       kind: "cake",
       layout: "split",
-      photos: ["brownie-box-nine", "brownie-box-ribbon"],
+      photos: ["brownie-box-nine"],
       groups: [
         {
           title: "Cheesecakes",
@@ -319,7 +319,7 @@ window.BAKEHAUS = {
       {
         title: "Also lovely for gifting",
         items: [
-          { name: "Brownie Gift Box", desc: "Our signature brownies, boxed and tied with ribbon", img: "brownie-box-ribbon", link: "menu.html#cheesecakes" },
+          { name: "Brownie Gift Box", desc: "Our signature brownies in a festive gift box, tied with the BakeHaus ribbon", img: "brownie-box-ribbon" },
           { name: "Scoopable Cookie Tins", desc: "Six flavours, ₹900 to ₹1,000 a tin", img: "cookie-tins-scoopable", link: "menu.html#cookie-tins" }
         ]
       }
@@ -360,7 +360,7 @@ window.BAKEHAUS = {
     { img: "cake-baby-boy", alt: "Blue baby shower cake with teddy bears and rainbows", cat: "cakes" },
     { img: "grazing-ladder", alt: "Grazing table with a wooden ladder stand and doughnuts", cat: "grazing" },
     { img: "cake-fresh-fruit", alt: "Fresh fruit layer cake with flowers", cat: "cakes" },
-    { img: "brownie-box-ribbon", alt: "Gift box of brownies tied with a BakeHaus ribbon", cat: "sweets" },
+    { img: "brownie-box-ribbon", alt: "Diwali brownie gift box tied with a BakeHaus ribbon", cat: "festive" },
     { img: "cake-two-tier", alt: "Two tier white cake with a sketch design", cat: "cakes" },
     { img: "mini-tart-cakes-hazelnut", alt: "Hazelnut praline mini tart cakes", cat: "sweets" },
     { img: "cake-pink-leaf", alt: "Birthday cake with pink painted leaves", cat: "cakes" },
