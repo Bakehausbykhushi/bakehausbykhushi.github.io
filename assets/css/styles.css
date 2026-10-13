@@ -820,7 +820,7 @@ body::after {
 @media (min-width: 640px) { .gifts { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1000px) {
   .gifts { grid-template-columns: repeat(3, 1fr); }
-  .gifts-sm { grid-template-columns: repeat(3, 1fr); }
+  .gifts-sm { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 }
 .dw-corp { margin-top: 56px; border: 1.5px solid color-mix(in srgb, var(--marigold) 55%, transparent); }
 .cat-nav a.cat-festive { color: var(--accent); border-color: color-mix(in srgb, var(--marigold) 60%, transparent); }

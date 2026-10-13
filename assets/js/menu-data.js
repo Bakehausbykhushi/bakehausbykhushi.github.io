@@ -312,14 +312,13 @@ window.BAKEHAUS = {
         title: "The hampers",
         items: [
           { name: "Festive Basket Hamper", desc: "A woven basket with jars of festive treats and gourmet snacks, finished with a potli or tulle and the BakeHaus ribbon", img: "diwali-wicker-hamper", photos: ["diwali-wicker-hamper", "diwali-potli-basket"] },
-          { name: "Heritage Gift Box", desc: "Our printed gift box, paired with a set of mini tins", img: "diwali-heritage-box" },
+          { name: "Heritage Gift Box", desc: "Six assorted cookie cups in our printed heritage gift box", img: "diwali-heritage-box", photos: ["diwali-heritage-box", "cookie-cups-box"] },
           { name: "Potli & Cookie Tin", desc: "A festive potli with a tin of our chonky cookies", img: "diwali-potli-tin" }
         ]
       },
       {
         title: "Also lovely for gifting",
         items: [
-          { name: "Cookie Cup Gift Box", desc: "Six assorted cookie cups in a festive printed box", img: "cookie-cups-box" },
           { name: "Brownie Gift Box", desc: "Our signature brownies, boxed and tied with ribbon", img: "brownie-box-ribbon", link: "menu.html#cheesecakes" },
           { name: "Scoopable Cookie Tins", desc: "Six flavours, ₹900 to ₹1,000 a tin", img: "cookie-tins-scoopable", link: "menu.html#cookie-tins" }
         ]
