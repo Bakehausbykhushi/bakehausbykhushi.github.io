@@ -64,7 +64,7 @@
   if (headerEl) {
     headerEl.innerHTML =
       '<div class="wrap header-inner">' +
-        '<a class="brand" href="index.html" aria-label="BakeHaus by Khushi Lalwani, home"><span class="brand-logo" aria-hidden="true"></span></a>' +
+        '<a class="brand" href="index.html" aria-label="BakeHaus by Khushi Lalwani, home"><img class="brand-logo" src="assets/img/logo.svg" alt="" width="150" height="35"></a>' +
         '<nav class="main-nav" aria-label="Main">' + navLinks() + "</nav>" +
         '<a class="btn btn-wa header-cta" data-wa="general" href="https://wa.me/' + D.phone + '" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i><span>Order on WhatsApp</span></a>' +
         '<button type="button" class="icon-btn nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu"><i class="ph ph-list" aria-hidden="true"></i></button>' +
@@ -90,7 +90,7 @@
   if (footerEl) {
     footerEl.innerHTML =
       '<div class="wrap footer-inner">' +
-        '<div class="footer-brand"><span class="brand-logo brand-logo-lg" role="img" aria-label="BakeHaus by Khushi Lalwani"></span>' +
+        '<div class="footer-brand"><img class="brand-logo brand-logo-lg" src="assets/img/logo.svg" alt="BakeHaus by Khushi Lalwani" width="190" height="44">' +
         "<p>Cloud kitchen by Chef Khushi Lalwani. 100% eggless, made to order.</p></div>" +
         '<ul class="footer-links">' +
           '<li><a data-wa="general" href="https://wa.me/' + D.phone + '" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i>' + esc(D.phoneDisplay) + "</a></li>" +
