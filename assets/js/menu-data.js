@@ -94,6 +94,7 @@ window.BAKEHAUS = {
     },
     {
       id: "cookie-tins",
+      ships: true,
       title: "Signature cookie tins",
       short: "Cookie tins",
       blurb: "A whole cookie baked right in the tin. Warm it up and dig in with a spoon.",
@@ -138,6 +139,7 @@ window.BAKEHAUS = {
     },
     {
       id: "cookies",
+      ships: true,
       title: "Cookies",
       short: "Cookies",
       blurb: "Crisp tea time biscuits and big, chewy chonky cookies. Both make easy gifts.",
@@ -243,7 +245,7 @@ window.BAKEHAUS = {
         {
           title: "Brownies",
           items: [
-            { name: "Signature Brownies", desc: "Fudgy, dense and utterly irresistible", size: "4 pcs · 350g", price: 600, img: "brownie-box-nine", kind: "box" }
+            { name: "Signature Brownies", desc: "Fudgy, dense and utterly irresistible. Ships across India.", ships: true, size: "4 pcs · 350g", price: 600, img: "brownie-box-nine", kind: "box" }
           ]
         }
       ]

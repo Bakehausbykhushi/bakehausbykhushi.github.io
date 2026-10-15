@@ -187,6 +187,9 @@
     if (it.options) lines.unshift("Flavour (" + it.options.join(" / ") + "):");
     return lines;
   }
+  // Cookies, cookie tins and brownies ship pan-India; the client pays delivery.
+  function shipsOf(it, cat) { return !!(it.ships || cat.ships); }
+  var SHIP_LINE = "Pickup, Jalgaon delivery or shipping (share city + pincode):";
   function itemMessage(it, cat) {
     if (kindOf(it, cat) === "hamper") {
       var occasion = DW ? DW.festival : "gifting";
@@ -202,7 +205,7 @@
     var detail = [it.size, priceLabel(it)].filter(Boolean).join(", ");
     return ["Hi BakeHaus! I'd like to order:", "*" + it.name + "* (" + cat.short + ")", detail, "", dateLine()]
       .concat(itemPrompts(it, cat))
-      .concat(["Pickup or delivery:", "", "Please confirm availability. Thank you!"]).join("\n");
+      .concat([shipsOf(it, cat) ? SHIP_LINE : "Pickup or delivery:", "", "Please confirm availability. Thank you!"]).join("\n");
   }
   function generalMessage() {
     return ["Hi BakeHaus! I'd like to place an order.", "", dateLine(), "What I'd like:", "", "Thank you!"].join("\n");
@@ -423,7 +426,8 @@
   function headHTML(cat) {
     return '<header class="cat-head"><h2 id="h-' + cat.id + '">' + esc(cat.title) + "</h2>" +
       (cat.blurb ? "<p>" + esc(cat.blurb) + "</p>" : "") +
-      (cat.note ? '<p class="cat-note"><i class="ph ph-info" aria-hidden="true"></i>' + esc(cat.note) + "</p>" : "") + "</header>";
+      (cat.note ? '<p class="cat-note"><i class="ph ph-info" aria-hidden="true"></i>' + esc(cat.note) + "</p>" : "") +
+      (cat.ships ? '<p class="cat-note cat-ship"><i class="ph ph-truck" aria-hidden="true"></i>Ships across India. Delivery charges depend on your location and are added to your order total.</p>' : "") + "</header>";
   }
 
   function nextHTML(i) {
@@ -842,7 +846,7 @@
     if (state.tray.some(function (t) { var r = ITEMS[t.key]; return r && kindOf(r.it, r.cat) === "cake"; })) lines.push("Cake details (weight, design, message):");
     var notes = $("#sheetNotes").value.trim();
     if (notes) lines.push("Notes: " + notes);
-    lines.push("Pickup or delivery:", "", "Please confirm availability" + (hasStartingItems() || hasRequestItems() ? " and the final price" : "") + ". Thank you!");
+    lines.push(state.tray.some(function (t) { var r = ITEMS[t.key]; return r && shipsOf(r.it, r.cat); }) ? SHIP_LINE : "Pickup or delivery:", "", "Please confirm availability" + (hasStartingItems() || hasRequestItems() ? " and the final price" : "") + ". Thank you!");
     return lines.join("\n");
   }
 

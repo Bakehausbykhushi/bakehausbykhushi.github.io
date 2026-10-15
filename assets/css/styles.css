@@ -98,7 +98,7 @@ p { margin: 0; text-wrap: pretty; }
 }
 .brand-logo-lg { width: 168px; }
 .main-nav { display: none; gap: 4px; margin-left: auto; }
-.main-nav a { text-decoration: none; font-weight: 500; padding: 8px 14px; border-radius: 999px; color: var(--ink-2); transition: color 0.2s, background-color 0.2s; }
+.main-nav a { text-decoration: none; font-weight: 500; padding: 8px 14px; white-space: nowrap; border-radius: 999px; color: var(--ink-2); transition: color 0.2s, background-color 0.2s; }
 .main-nav a:hover { color: var(--ink); background: var(--bg-2); }
 .main-nav a[aria-current="page"] { color: var(--ink); background: var(--bg-2); font-weight: 600; }
 .header-cta { margin-left: auto; min-height: 42px; padding: 0 16px; font-size: 0.925rem; }
@@ -106,6 +106,7 @@ p { margin: 0; text-wrap: pretty; }
   .main-nav { display: flex; }
   .header-cta { margin-left: 8px; }
 }
+@media (min-width: 1080px) and (max-width: 1240px) { .main-nav { gap: 0; } .main-nav a { padding: 8px 10px; font-size: 0.95rem; } }
 @media (max-width: 420px) {
   .header-cta span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .header-cta { width: 44px; padding: 0; }
@@ -985,3 +986,4 @@ body::after {
 .letter p:not(.kicker) { color: var(--ink-2); max-width: 52ch; margin: 0 auto 12px; line-height: 1.65; }
 .letter .signoff { margin-top: 24px; font-size: 0.95rem; }
 .letter .sig { display: block; font-family: "Pinyon Script", cursive; font-size: 2.6rem; line-height: 1.2; color: var(--accent); margin-top: 4px; }
+.hero-kicker { margin-bottom: 14px; }
