@@ -963,3 +963,25 @@ body::after {
 .date-display { position: absolute; left: 18px; right: 44px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .date-display.is-empty { color: var(--ink-3); }
 .date-wrap input[type="date"]:focus-visible + .date-display { color: var(--ink); }
+
+/* Reviews (home) */
+.home-reviews { padding-top: 56px; }
+.reviews { display: grid; grid-auto-flow: column; grid-auto-columns: min(86%, 380px); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+.reviews::-webkit-scrollbar { display: none; }
+@media (min-width: 900px) { .reviews { grid-auto-columns: calc((100% - 32px) / 3); } }
+.review { margin: 0; scroll-snap-align: start; background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow); padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+.review-stars { color: var(--marigold); display: flex; gap: 2px; font-size: 1rem; }
+.review blockquote { margin: 0; font-family: var(--display); font-size: 1.08rem; line-height: 1.5; letter-spacing: -0.01em; flex: 1; }
+.review figcaption { display: flex; flex-direction: column; gap: 2px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 0.9rem; }
+.review figcaption span { color: var(--ink-2); }
+#reviewsLink .ph-star { color: var(--marigold); }
+
+/* Letter (about) */
+.letter-wrap { padding-top: 24px; padding-bottom: 32px; }
+.letter { max-width: 680px; margin: 0 auto; background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow); padding: clamp(28px, 5vw, 52px); text-align: center; position: relative; }
+.letter::before { content: ""; position: absolute; inset: 10px; border: 1px solid var(--line); border-radius: calc(var(--r) - 6px); pointer-events: none; }
+.letter h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.03em; margin: 10px 0 18px; }
+.letter h2 em { font-style: normal; color: var(--accent); }
+.letter p:not(.kicker) { color: var(--ink-2); max-width: 52ch; margin: 0 auto 12px; line-height: 1.65; }
+.letter .signoff { margin-top: 24px; font-size: 0.95rem; }
+.letter .sig { display: block; font-family: "Pinyon Script", cursive; font-size: 2.6rem; line-height: 1.2; color: var(--accent); margin-top: 4px; }

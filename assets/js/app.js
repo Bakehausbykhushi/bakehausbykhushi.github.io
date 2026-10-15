@@ -343,6 +343,18 @@
     location.replace("menu.html");
   }
 
+  var reviewEl = $("#reviewList");
+  if (reviewEl && D.testimonials) {
+    var T = D.testimonials;
+    var stars = new Array(6).join('<i class="ph-fill ph-star" aria-hidden="true"></i>');
+    $("#reviewsScore").textContent = T.rating + " on Google · " + T.count + " reviews";
+    reviewEl.innerHTML = T.items.map(function (r) {
+      return '<figure class="review reveal"><div class="review-stars" role="img" aria-label="5 out of 5 stars">' + stars + '</div>' +
+        '<blockquote>“' + esc(r.quote) + '”</blockquote>' +
+        '<figcaption><b>' + esc(r.name) + '</b>' + (r.ordered ? '<span>Ordered ' + esc(r.ordered) + '</span>' : '<span>Google review</span>') + '</figcaption></figure>';
+    }).join("");
+  }
+
   var teaserEl = $("#galleryTeaser");
   if (teaserEl) {
     var teaserPhotos = ["cake-princess-tiered", "grazing-dips", "mini-tart-cakes-orange", "cake-lambeth-fifty", "dessert-table-cups"];

@@ -346,6 +346,17 @@ window.BAKEHAUS = {
     ]
   },
 
+  // Real Google reviews, lightly trimmed. Add new ones at the top.
+  testimonials: {
+    rating: "5.0",
+    count: 7,
+    items: [
+      { quote: "We ordered the focaccia sandwich with tandoori paneer and pesto hummus, and it was absolutely incredible. Everything tastes freshly made, wholesome, and handled with so much attention to detail.", name: "Aaditya J.", ordered: "Focaccia sandwich" },
+      { quote: "That was the most delicious, moist cake I've ever had. Absolutely divine, everyone liked the cake!", name: "Rekha K.", ordered: "Celebration cake" },
+      { quote: "The quality of the products, taste and presentation were all excellent. The owner is very professional and ensures every detail is taken care of. Highly recommended for fresh, premium baked goods.", name: "Vishal L." }
+    ]
+  },
+
   gallery: [
     { img: "diwali-collection", alt: "The BakeHaus Diwali collection: cookie vault, gourmet basket, brownie box and potli", cat: "festive" },
     { img: "diwali-indulgence-trunk", alt: "The Indulgence Trunk with brownie bites, macarons, cashews, beetroot chips and nankhatai", cat: "festive" },
