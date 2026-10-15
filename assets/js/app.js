@@ -19,7 +19,7 @@
     "grazing-dips": [720, 480, 1600], "grazing-garden": [720, 480, 1600], "grazing-ladder": [540, 720, 1200],
     "grazing-panorama": [720, 447, 1600], "grazing-round-table": [720, 480, 1600], "grazing-sliders": [540, 720, 1200],
     "grazing-sliders-stand": [720, 588, 1372], "grazing-sunflower": [720, 582, 958], "grazing-tiers": [577, 720, 960],
-    "tiramisu-cups": [540, 720, 1200], "trail-mix-tin": [540, 720, 1200]
+    "tiramisu-cups": [540, 720, 1200], "bishops-nut-cake": [540, 720, 900]
   };
   function dims(name) { return DIMS[name] || [540, 720, 960]; }
   function sm(name) { return "assets/img/" + name + "-sm.jpg"; }

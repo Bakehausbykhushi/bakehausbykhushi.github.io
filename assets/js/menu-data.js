@@ -177,13 +177,13 @@ window.BAKEHAUS = {
       note: "All 500g unless noted.",
       kind: "loaf",
       layout: "feature",
-      photos: ["callet-butter-cake", "oats-dates-loaf"],
+      photos: ["callet-butter-cake", "bishops-nut-cake", "oats-dates-loaf"],
       groups: [
         {
           items: [
             { name: "Iyengar Mawa Tea Cake", size: "500g", price: 550 },
             { name: "Chocolate Callet Butter Cake", size: "500g", price: 600, img: "callet-butter-cake" },
-            { name: "Bishop's Nut Tea Cake", desc: "Packed with nuts and dried fruit", size: "500g", price: 750, tag: "New" },
+            { name: "Bishop's Nut Tea Cake", desc: "Packed with nuts and dried fruit", size: "500g", price: 750, tag: "New", img: "bishops-nut-cake" },
             { name: "Sugar-Free Oats & Dates Cake", desc: "Maida-free", size: "500g", price: 650, img: "oats-dates-loaf", keywords: "sugar free sugarfree healthy no sugar" },
             { name: "Wholewheat Jaggery Cake", size: "500g", price: 550 },
             { name: "Coconut Lime Cake", size: "500g", price: 500 },
@@ -410,6 +410,6 @@ window.BAKEHAUS = {
     { img: "grazing-cake-stand", alt: "Tiered stand of chocolate desserts", cat: "grazing" },
     { img: "brownie-bites-box", alt: "Box of decorated brownie bites", cat: "sweets" },
     { img: "grazing-sunflower", alt: "Grazing table with sunflowers and mini desserts", cat: "grazing" },
-    { img: "trail-mix-tin", alt: "Tin of nuts and dried berries", cat: "sweets" }
+    { img: "bishops-nut-cake", alt: "Bishop's nut tea cake topped with almonds, cashews, cranberries and rose petals", cat: "sweets" }
   ]
 };
