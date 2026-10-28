@@ -305,11 +305,14 @@ window.BAKEHAUS = {
     Festive specials. Shown in the header as "Festive specials" and on festive.html.
     For the next festival, change the festival name, greeting, headline, intro,
     photos and items below. Set enabled: false to hide it everywhere at once.
+    endsAfter: the last day it shows (YYYY-MM-DD, India time). From the next day it hides
+    itself everywhere and festive.html sends visitors to the menu. Remove it to show indefinitely.
     Add price: 1500 (for example) to any item; without a price it shows "Price on request".
     Gallery photos tagged cat: "festive" appear under the festival's filter.
   */
   festive: {
     enabled: true,
+    endsAfter: "2026-11-08",
     id: "festive",
     festival: "Diwali",
     title: "Diwali hampers",
@@ -351,7 +354,7 @@ window.BAKEHAUS = {
   // Real Google reviews, lightly trimmed. Add new ones at the top.
   testimonials: {
     rating: "5.0",
-    count: 7,
+    count: 10,
     items: [
       { quote: "We ordered the focaccia sandwich with tandoori paneer and pesto hummus, and it was absolutely incredible. Everything tastes freshly made, wholesome, and handled with so much attention to detail.", name: "Aaditya J.", ordered: "Focaccia sandwich" },
       { quote: "That was the most delicious, moist cake I've ever had. Absolutely divine, everyone liked the cake!", name: "Rekha K.", ordered: "Celebration cake" },

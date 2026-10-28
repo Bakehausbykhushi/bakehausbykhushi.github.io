@@ -57,7 +57,9 @@
     { page: "gallery", href: "gallery.html", label: "Gallery" },
     { page: "about", href: "about.html", label: "About" }
   ];
-  var DW = D.festive && D.festive.enabled ? D.festive : null;
+  // Festive specials show while enabled and until the end of endsAfter (India time).
+  var festiveLive = D.festive && D.festive.enabled && (!D.festive.endsAfter || Date.now() < Date.parse(D.festive.endsAfter + "T23:59:59+05:30"));
+  var DW = festiveLive ? D.festive : null;
   if (DW) NAV.splice(1, 0, { page: "festive", href: "festive.html", label: DW.short, festive: true });
   function navLinks() {
     return NAV.map(function (n) {
