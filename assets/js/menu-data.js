@@ -351,14 +351,12 @@ window.BAKEHAUS = {
     ]
   },
 
-  // Real Google reviews, lightly trimmed. Add new ones at the top.
+  // Real Google reviews only, lightly trimmed. Keep the newest, longest ones (3 fit one row on the home page).
   testimonials: {
-    rating: "5.0",
-    count: 10,
     items: [
-      { quote: "We ordered the focaccia sandwich with tandoori paneer and pesto hummus, and it was absolutely incredible. Everything tastes freshly made, wholesome, and handled with so much attention to detail.", name: "Aaditya J.", ordered: "Focaccia sandwich" },
-      { quote: "That was the most delicious, moist cake I've ever had. Absolutely divine, everyone liked the cake!", name: "Rekha K.", ordered: "Celebration cake" },
-      { quote: "The quality of the products, taste and presentation were all excellent. The owner is very professional and ensures every detail is taken care of. Highly recommended for fresh, premium baked goods.", name: "Vishal L." }
+      { quote: "The cake and brownie tasted amazing. The design was exactly how I wanted it. Thank you so much for the amazing taste and beautiful work. Loved everything!", name: "Harsha P.", ordered: "Cake and brownies" },
+      { quote: "Khushi has been my forever go-to for hosting people! From sweet to savoury, all the items on her menu are perfect.", name: "Mehek P." },
+      { quote: "Had a wonderful experience with this bakery. The quality of the products, taste and presentation were all excellent. The owner is very professional and ensures every detail is taken care of. Highly recommended for fresh, premium baked goods.", name: "Vishal L." }
     ]
   },
 

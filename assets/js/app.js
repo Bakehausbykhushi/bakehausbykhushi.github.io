@@ -51,16 +51,16 @@
 
   // ---------- shared chrome (one source for every page) ----------
   var NAV = [
-    { page: "menu", href: "menu.html", label: "Menu" },
-    { page: "grazing", href: "grazing.html", label: "Grazing tables" },
-    { page: "order", href: "order.html", label: "How to order" },
-    { page: "gallery", href: "gallery.html", label: "Gallery" },
-    { page: "about", href: "about.html", label: "About" }
+    { page: "menu", href: "menu", label: "Menu" },
+    { page: "grazing", href: "grazing", label: "Grazing tables" },
+    { page: "order", href: "order", label: "How to order" },
+    { page: "gallery", href: "gallery", label: "Gallery" },
+    { page: "about", href: "about", label: "About" }
   ];
   // Festive specials show while enabled and until the end of endsAfter (India time).
   var festiveLive = D.festive && D.festive.enabled && (!D.festive.endsAfter || Date.now() < Date.parse(D.festive.endsAfter + "T23:59:59+05:30"));
   var DW = festiveLive ? D.festive : null;
-  if (DW) NAV.splice(1, 0, { page: "festive", href: "festive.html", label: DW.short, festive: true });
+  if (DW) NAV.splice(1, 0, { page: "festive", href: "festive", label: DW.short, festive: true });
   function navLinks() {
     return NAV.map(function (n) {
       return '<a href="' + n.href + '"' + (n.festive ? ' class="nav-festive"' : "") + (n.page === PAGE ? ' aria-current="page"' : "") + ">" + (n.festive ? '<i class="ph-fill ph-sparkle" aria-hidden="true"></i>' : "") + n.label + "</a>";
@@ -71,13 +71,13 @@
   if (headerEl) {
     headerEl.innerHTML =
       '<div class="wrap header-inner">' +
-        '<a class="brand" href="index.html" aria-label="BakeHaus by Khushi Lalwani, home"><img class="brand-logo" src="assets/img/logo.svg" alt="" width="150" height="35"></a>' +
+        '<a class="brand" href="/" aria-label="BakeHaus by Khushi Lalwani, home"><img class="brand-logo" src="assets/img/logo.svg" alt="" width="150" height="35"></a>' +
         '<nav class="main-nav" aria-label="Main">' + navLinks() + "</nav>" +
         '<a class="btn btn-wa header-cta" data-wa="general" href="https://wa.me/' + D.phone + '" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i><span>Order on WhatsApp</span></a>' +
         '<button type="button" class="icon-btn nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu"><i class="ph ph-list" aria-hidden="true"></i></button>' +
       "</div>" +
       '<nav class="mobile-nav" id="mobileNav" aria-label="Main" hidden><div class="wrap">' +
-        '<a href="index.html"' + (PAGE === "home" ? ' aria-current="page"' : "") + ">Home</a>" + navLinks() +
+        '<a href="/"' + (PAGE === "home" ? ' aria-current="page"' : "") + ">Home</a>" + navLinks() +
       "</div></nav>";
     headerEl.insertAdjacentHTML("afterend", '<div class="awning" aria-hidden="true"></div>');
     var toggle = $("#navToggle"), mnav = $("#mobileNav");
@@ -107,7 +107,7 @@
         '<address class="footer-address"><p><i class="ph ph-map-pin" aria-hidden="true"></i><span>' + esc(D.address) + "</span></p>" +
           '<p><i class="ph ph-clock" aria-hidden="true"></i><span>' + esc(D.hours) + "</span></p>" +
           '<a class="text-link" href="https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent("BakeHaus by Khushi, " + D.address) + '" target="_blank" rel="noopener">Get directions <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></address>' +
-        '<nav class="footer-pages" aria-label="Site pages"><a href="index.html">Home</a>' + NAV.map(function (n) { return '<a href="' + n.href + '">' + esc(n.label) + '</a>'; }).join("") + '<a href="privacy.html">Privacy</a></nav>' +
+        '<nav class="footer-pages" aria-label="Site pages"><a href="/">Home</a>' + NAV.map(function (n) { return '<a href="' + n.href + '">' + esc(n.label) + '</a>'; }).join("") + '<a href="privacy">Privacy</a></nav>' +
         '<p class="fine">© ' + new Date().getFullYear() + " BakeHaus by Khushi Lalwani · Pre-orders only · Photos show past orders, every design is made to order</p>" +
       "</div>";
   }
@@ -252,9 +252,9 @@
       var prices = [];
       c.groups.forEach(function (g) { g.items.forEach(function (it) { if (it.price) prices.push(it.price); }); });
       var starting = c.groups.some(function (g) { return g.items.some(function (it) { return it.from; }); });
-      return { href: "menu.html#" + c.id, title: c.title, photo: (c.photos || [])[0], min: Math.min.apply(null, prices), max: Math.max.apply(null, prices), starting: starting, priceText: c.priceText, id: c.id };
+      return { href: "menu#" + c.id, title: c.title, photo: (c.photos || [])[0], min: Math.min.apply(null, prices), max: Math.max.apply(null, prices), starting: starting, priceText: c.priceText, id: c.id };
     });
-    tiles.splice(2, 0, { href: "grazing.html", title: "Grazing tables", photo: D.grazing.photos[0], perHead: D.grazing.pricePerHead, id: "grazing" });
+    tiles.splice(2, 0, { href: "grazing", title: "Grazing tables", photo: D.grazing.photos[0], perHead: D.grazing.pricePerHead, id: "grazing" });
     tilesEl.innerHTML = tiles.map(function (t) {
       var d = t.photo ? dims(t.photo) : null;
       // Only categories marked from: true are starting prices; the rest show their fixed price range.
@@ -280,7 +280,7 @@
         ? '<img src="' + sm(it.img) + '" alt="' + esc(it.name) + '" loading="lazy" width="540" height="720">'
         : '<i class="ph ph-cake pick-icon" aria-hidden="true"></i>';
       return '<article class="pick-card reveal">' +
-        '<a class="pick-photo' + (it.img ? "" : " pick-photo-plain") + '" href="menu.html#' + cat.id + '" aria-label="' + esc(it.name) + ' on the menu">' + photo + "</a>" +
+        '<a class="pick-photo' + (it.img ? "" : " pick-photo-plain") + '" href="menu#' + cat.id + '" aria-label="' + esc(it.name) + ' on the menu">' + photo + "</a>" +
         stickerHTML(it.tag) +
         '<div class="pick-body"><p class="pick-cat">' + esc(cat.short) + "</p><h3>" + esc(it.name) + "</h3>" +
         '<div class="pick-foot"><span class="price">' + (it.from ? '<span class="from">from</span>' : "") + rupees(it.price) + (it.unit ? "<small>" + esc(it.unit) + "</small>" : "") + "</span>" +
@@ -300,7 +300,7 @@
       bannerEl.innerHTML =
         '<div class="dw-banner-copy"><p class="kicker kicker-festive"><i class="ph-fill ph-sparkle" aria-hidden="true"></i>' + esc(DW.greeting) + "</p>" +
         "<h2>" + esc(DW.bannerTitle) + "</h2><p>" + esc(DW.bannerText) + "</p>" +
-        '<a class="btn btn-primary" href="festive.html">' + esc(DW.bannerButton) + ' <i class="ph ph-arrow-right" aria-hidden="true"></i></a></div>' +
+        '<a class="btn btn-primary" href="festive">' + esc(DW.bannerButton) + ' <i class="ph ph-arrow-right" aria-hidden="true"></i></a></div>' +
         '<div class="dw-banner-photos" aria-hidden="true">' + DW.photos.slice(0, 3).map(function (p) {
           return '<img src="' + sm(p) + '" alt="' + altOf(p) + '" loading="lazy" width="540" height="720">';
         }).join("") + "</div>";
@@ -351,14 +351,13 @@
     $$("[data-wa-festive]").forEach(function (a) { a.href = waLink(a.dataset.waFestive === "corporate" ? corpMsg : fsMsg); });
   } else if (festiveEl && !DW) {
     // No festival running: send visitors to the menu instead of an empty page.
-    location.replace("menu.html");
+    location.replace("menu");
   }
 
   var reviewEl = $("#reviewList");
   if (reviewEl && D.testimonials) {
     var T = D.testimonials;
     var stars = new Array(6).join('<i class="ph-fill ph-star" aria-hidden="true"></i>');
-    $("#reviewsScore").textContent = T.rating + " on Google · " + T.count + " reviews";
     reviewEl.innerHTML = T.items.map(function (r) {
       return '<figure class="review reveal"><div class="review-stars" role="img" aria-label="5 out of 5 stars">' + stars + '</div>' +
         '<blockquote>“' + esc(r.quote) + '”</blockquote>' +
@@ -371,7 +370,7 @@
     var teaserPhotos = ["cake-princess-tiered", "grazing-dips", "mini-tart-cakes-orange", "cake-lambeth-fifty", "dessert-table-cups"];
     teaserEl.innerHTML = teaserPhotos.map(function (p) {
       var d = dims(p), g = D.gallery.filter(function (x) { return x.img === p; })[0];
-      return '<a class="teaser-card reveal" href="gallery.html"><img src="' + sm(p) + '" alt="' + esc(g ? g.alt : "") + '" loading="lazy" width="' + d[0] + '" height="' + d[1] + '"></a>';
+      return '<a class="teaser-card reveal" href="gallery"><img src="' + sm(p) + '" alt="' + esc(g ? g.alt : "") + '" loading="lazy" width="' + d[0] + '" height="' + d[1] + '"></a>';
     }).join("");
   }
 
@@ -442,7 +441,7 @@
     var next = D.categories[i + 1];
     var link = next
       ? '<a class="cat-next-link" href="#' + next.id + '" data-show="' + next.id + '"><span>Next</span><strong>' + esc(next.title) + '</strong><i class="ph ph-arrow-right" aria-hidden="true"></i></a>'
-      : '<a class="cat-next-link" href="grazing.html"><span>Planning an event?</span><strong>Grazing tables</strong><i class="ph ph-arrow-right" aria-hidden="true"></i></a>';
+      : '<a class="cat-next-link" href="grazing"><span>Planning an event?</span><strong>Grazing tables</strong><i class="ph ph-arrow-right" aria-hidden="true"></i></a>';
     return '<nav class="cat-next" aria-label="Next category">' + link + "</nav>";
   }
 
@@ -546,8 +545,8 @@
     sectionsEl.innerHTML = D.categories.map(renderCategory).join("") + '<p class="wrap search-grazing" id="searchGrazing" hidden></p>';
     catNav.innerHTML = D.categories.map(function (c) {
       return '<a href="#' + c.id + '" data-cat="' + c.id + '" data-show="' + c.id + '">' + esc(c.short) + "</a>";
-    }).join("") + '<a href="grazing.html" data-cat="grazing">Grazing tables</a>' +
-      (DW ? '<a href="festive.html" data-cat="festive" class="cat-festive"><i class="ph-fill ph-sparkle" aria-hidden="true"></i> ' + esc(DW.short) + "</a>" : "");
+    }).join("") + '<a href="grazing" data-cat="grazing">Grazing tables</a>' +
+      (DW ? '<a href="festive" data-cat="festive" class="cat-festive"><i class="ph-fill ph-sparkle" aria-hidden="true"></i> ' + esc(DW.short) + "</a>" : "");
     startStacks(sectionsEl);
     showCat((location.hash || "").slice(1), false);
     window.addEventListener("hashchange", function () {
@@ -581,7 +580,7 @@
       var gHits = q ? grazingNames.filter(function (n) { return n.toLowerCase().indexOf(q) > -1; }) : [];
       var sg = $("#searchGrazing");
       sg.hidden = gHits.length === 0;
-      sg.innerHTML = gHits.length ? "Also on our grazing table menu: <strong>" + esc(gHits.slice(0, 4).join(", ")) + (gHits.length > 4 ? " and more" : "") + '</strong>. <a href="grazing.html">Build a table</a>' : "";
+      sg.innerHTML = gHits.length ? "Also on our grazing table menu: <strong>" + esc(gHits.slice(0, 4).join(", ")) + (gHits.length > 4 ? " and more" : "") + '</strong>. <a href="grazing">Build a table</a>' : "";
       $("#menuEmpty").hidden = any || !q || gHits.length > 0;
       $("#emptyTerm").textContent = searchBox.value.trim();
       $("#emptyAsk").href = waLink("Hi BakeHaus! Do you make " + searchBox.value.trim() + "?\n\n" + dateLine());
@@ -1141,7 +1140,7 @@
   // ---------- search engines: menu with prices as structured data (built from menu-data.js, so it never goes stale) ----------
   if (PAGE === "menu") {
     var menuLd = {
-      "@context": "https://schema.org", "@type": "Menu", name: "BakeHaus menu", url: "https://bakehausbykhushi.com/menu.html",
+      "@context": "https://schema.org", "@type": "Menu", name: "BakeHaus menu", url: "https://bakehausbykhushi.com/menu",
       inLanguage: "en-IN", provider: { "@id": "https://bakehausbykhushi.com/#bakery" },
       hasMenuSection: D.categories.filter(function (c) { return c.groups.length; }).map(function (c) {
         return { "@type": "MenuSection", name: c.title, hasMenuItem: [].concat.apply([], c.groups.map(function (g) { return g.items; })).map(function (it) {
