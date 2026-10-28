@@ -22,9 +22,14 @@
     "tiramisu-cups": [540, 720, 1200], "bishops-nut-cake": [540, 720, 900]
   };
   function dims(name) { return DIMS[name] || [540, 720, 960]; }
-  function sm(name) { return "assets/img/" + name + "-sm.jpg"; }
-  function lg(name) { return "assets/img/" + name + "-lg.jpg"; }
+  function sm(name) { return "assets/img/" + name + "-sm.webp"; }
+  function lg(name) { return "assets/img/" + name + "-lg.webp"; }
   function srcset(name) { var d = dims(name); return sm(name) + " " + d[0] + "w, " + lg(name) + " " + d[2] + "w"; }
+  // Descriptive alt text for photos: the gallery caption when there is one, otherwise the file name in words.
+  function altOf(name) {
+    var g = (D.gallery || []).filter(function (x) { return x.img === name; })[0];
+    return esc(g ? g.alt : String(name).replace(/-/g, " ").replace(/^./, function (c) { return c.toUpperCase(); }) + " by BakeHaus");
+  }
 
   // ---------- helpers ----------
   function $(sel, root) { return (root || document).querySelector(sel); }
@@ -100,6 +105,7 @@
         '<address class="footer-address"><p><i class="ph ph-map-pin" aria-hidden="true"></i><span>' + esc(D.address) + "</span></p>" +
           '<p><i class="ph ph-clock" aria-hidden="true"></i><span>' + esc(D.hours) + "</span></p>" +
           '<a class="text-link" href="https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent("BakeHaus by Khushi, " + D.address) + '" target="_blank" rel="noopener">Get directions <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a></address>' +
+        '<nav class="footer-pages" aria-label="Site pages"><a href="index.html">Home</a>' + NAV.map(function (n) { return '<a href="' + n.href + '">' + esc(n.label) + '</a>'; }).join("") + '<a href="privacy.html">Privacy</a></nav>' +
         '<p class="fine">© ' + new Date().getFullYear() + " BakeHaus by Khushi Lalwani · Pre-orders only · Photos show past orders, every design is made to order</p>" +
       "</div>";
   }
@@ -254,7 +260,7 @@
         : t.starting ? "Starting at " + rupees(t.min) + ", varies with design"
         : t.min === t.max ? rupees(t.min) : rupees(t.min) + " to " + rupees(t.max);
       return '<a class="ctile ctile-' + t.id + (t.photo ? "" : " ctile-plain") + ' reveal" href="' + t.href + '">' +
-        (t.photo ? '<img src="' + sm(t.photo) + '" alt="" loading="lazy" width="' + d[0] + '" height="' + d[1] + '">' : '<i class="ph ph-cake ctile-icon" aria-hidden="true"></i>') +
+        (t.photo ? '<img src="' + sm(t.photo) + '" alt="' + altOf(t.photo) + '" loading="lazy" width="' + d[0] + '" height="' + d[1] + '">' : '<i class="ph ph-cake ctile-icon" aria-hidden="true"></i>') +
         '<span class="ctile-text"><span class="ctile-title">' + esc(t.title) + '</span><span class="ctile-price">' + price + "</span></span>" +
         '<i class="ph ph-arrow-up-right ctile-go" aria-hidden="true"></i></a>';
     }).join("");
@@ -294,7 +300,7 @@
         "<h2>" + esc(DW.bannerTitle) + "</h2><p>" + esc(DW.bannerText) + "</p>" +
         '<a class="btn btn-primary" href="festive.html">' + esc(DW.bannerButton) + ' <i class="ph ph-arrow-right" aria-hidden="true"></i></a></div>' +
         '<div class="dw-banner-photos" aria-hidden="true">' + DW.photos.slice(0, 3).map(function (p) {
-          return '<img src="' + sm(p) + '" alt="" loading="lazy" width="540" height="720">';
+          return '<img src="' + sm(p) + '" alt="' + altOf(p) + '" loading="lazy" width="540" height="720">';
         }).join("") + "</div>";
     }
   }
@@ -321,7 +327,7 @@
 
   var festiveEl = $("#festiveMain");
   if (festiveEl && DW) {
-    document.title = DW.title + " | BakeHaus by Khushi";
+    document.title = DW.title + " & Gift Boxes in Jalgaon | BakeHaus by Khushi";
     $("#fsGreeting").textContent = DW.greeting;
     $("#fsTitle").innerHTML = esc(DW.headline) + " <em>" + esc(DW.headlineAccent) + "</em>";
     $("#fsIntro").textContent = DW.intro;
@@ -329,7 +335,7 @@
       return '<li><i class="ph ' + ["ph-check-circle", "ph-gift", "ph-buildings"][i % 3] + '" aria-hidden="true"></i>' + esc(f) + "</li>";
     }).join("");
     $("#fsArt").innerHTML = DW.photos.slice(0, 3).map(function (p, i) {
-      return '<figure class="ha ha-' + (i + 1) + '"><img src="' + sm(p) + '" alt="" width="540" height="720"' + (i === 0 ? ' fetchpriority="high"' : "") + "></figure>";
+      return '<figure class="ha ha-' + (i + 1) + '"><img src="' + sm(p) + '" alt="' + altOf(p) + '" width="540" height="720"' + (i === 0 ? ' fetchpriority="high"' : "") + "></figure>";
     }).join("");
     var n = 0;
     $("#fsGroups").innerHTML = DW.groups.map(function (g, gi) {
@@ -378,7 +384,7 @@
     var key = cat.id + "--" + slug(it.name);
     var search = [it.name, it.desc || "", it.keywords || "", group && group.title || "", cat.title, cat.keywords || ""].join(" ").toLowerCase();
     var thumb = it.img
-      ? '<button type="button" class="item-thumb" data-lb="' + esc(it.img) + '" data-lb-alt="' + esc(it.name) + '" aria-label="View photo of ' + esc(it.name) + '"><img src="' + sm(it.img) + '" alt="" loading="lazy" width="56" height="56"></button>'
+      ? '<button type="button" class="item-thumb" data-lb="' + esc(it.img) + '" data-lb-alt="' + esc(it.name) + '" aria-label="View photo of ' + esc(it.name) + '"><img src="' + sm(it.img) + '" alt="' + esc(it.name) + '" loading="lazy" width="56" height="56"></button>'
       : "";
     var price = it.price != null
       ? '<span class="price">' + (it.from ? '<span class="from">from</span>' : "") + rupees(it.price) + (it.unit ? "<small>" + esc(it.unit) + "</small>" : "") + "</span>"
@@ -416,7 +422,7 @@
       var d = dims(p);
       // Only the first photo loads up front; the rest load just before they fade in.
       var src = i === 0 ? 'src="' + sm(p) + '" srcset="' + srcset(p) + '"' : 'data-src="' + sm(p) + '" data-srcset="' + srcset(p) + '"';
-      return "<img " + src + ' sizes="' + sizes + '" alt="" loading="lazy" width="' + d[0] + '" height="' + d[1] + '"' + (i === 0 ? ' class="is-on"' : "") + ">";
+      return "<img " + src + ' sizes="' + sizes + '" alt="' + altOf(p) + '" loading="lazy" width="' + d[0] + '" height="' + d[1] + '"' + (i === 0 ? ' class="is-on"' : "") + ">";
     }).join("") +
       '<button type="button" data-lb-set="' + cat.id + '" data-lb-i="0" aria-label="View ' + esc(cat.title) + ' photos"></button>' +
       (photos.length > 1 ? '<div class="stack-dots" aria-hidden="true">' + photos.map(function (_, i) { return "<span" + (i === 0 ? ' class="is-on"' : "") + "></span>"; }).join("") + "</div>" : "") +
@@ -464,7 +470,7 @@
         '<li><i class="ph ph-check-circle" aria-hidden="true"></i>We confirm the design and final price</li></ul>' +
         '<a class="btn btn-wa act-wa" data-key="' + customKey + '" href="' + waLink(itemMessage(ITEMS[customKey].it, cat)) + '" target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i><span>Enquire on WhatsApp</span></a></div>' +
         '<div class="custom-grid">' + photos.map(function (p, j) {
-          return '<button type="button" class="custom-shot" data-lb-set="' + cat.id + '" data-lb-i="' + j + '" aria-label="View customised cake ' + (j + 1) + '"><img src="' + sm(p) + '" alt="" loading="lazy" width="540" height="720"></button>';
+          return '<button type="button" class="custom-shot" data-lb-set="' + cat.id + '" data-lb-i="' + j + '" aria-label="View customised cake ' + (j + 1) + '"><img src="' + sm(p) + '" alt="' + altOf(p) + '" loading="lazy" width="540" height="720"></button>';
         }).join("") + "</div></div>";
       return open + attrs + body + nextHTML(i) + "</section>";
     }
@@ -486,7 +492,7 @@
     // gallery: photo strip above two columns of items
     body = headHTML(cat) + '<div class="strip">' + photos.map(function (p, j) {
       var d = dims(p);
-      return '<div class="ph-card"><img src="' + sm(p) + '" alt="" loading="lazy" width="' + d[0] + '" height="' + d[1] + '">' +
+      return '<div class="ph-card"><img src="' + sm(p) + '" alt="' + altOf(p) + '" loading="lazy" width="' + d[0] + '" height="' + d[1] + '">' +
         '<button type="button" data-lb-set="' + cat.id + '" data-lb-i="' + j + '" aria-label="View ' + esc(cat.title) + " photo " + (j + 1) + '"></button></div>';
     }).join("") + "</div>" + groups;
     return open + attrs + body + nextHTML(i) + "</section>";
@@ -617,7 +623,7 @@
     LB_SETS.grazing = G.photos.map(function (p) { return { img: p, alt: "Grazing table" }; });
     reel.innerHTML = G.photos.map(function (p, i) {
       var d = dims(p);
-      return '<div class="reel-card"><img src="' + sm(p) + '" alt="" loading="' + (i < 2 ? "eager" : "lazy") + '" width="' + d[0] + '" height="' + d[1] + '"><button type="button" data-lb-set="grazing" data-lb-i="' + i + '" aria-label="View grazing table photo ' + (i + 1) + '"></button></div>';
+      return '<div class="reel-card"><img src="' + sm(p) + '" alt="' + altOf(p) + '" loading="' + (i < 2 ? "eager" : "lazy") + '" width="' + d[0] + '" height="' + d[1] + '"><button type="button" data-lb-set="grazing" data-lb-i="' + i + '" aria-label="View grazing table photo ' + (i + 1) + '"></button></div>';
     }).join("");
     var cards = $$(".reel-card", reel), counter = $("#reelCount");
     var stepW = function () { return cards[0].getBoundingClientRect().width + parseFloat(getComputedStyle(reel).columnGap || 12); };
@@ -1128,6 +1134,27 @@
       if (navigator.clipboard) navigator.clipboard.writeText(id).then(function () { toast("UPI ID copied"); }, function () { toast(id); });
       else toast(id);
     });
+  }
+
+  // ---------- search engines: menu with prices as structured data (built from menu-data.js, so it never goes stale) ----------
+  if (PAGE === "menu") {
+    var menuLd = {
+      "@context": "https://schema.org", "@type": "Menu", name: "BakeHaus menu", url: "https://bakehausbykhushi.com/menu.html",
+      inLanguage: "en-IN", provider: { "@id": "https://bakehausbykhushi.com/#bakery" },
+      hasMenuSection: D.categories.filter(function (c) { return c.groups.length; }).map(function (c) {
+        return { "@type": "MenuSection", name: c.title, hasMenuItem: [].concat.apply([], c.groups.map(function (g) { return g.items; })).map(function (it) {
+          var mi = { "@type": "MenuItem", name: it.name };
+          if (it.desc) mi.description = it.desc;
+          if (it.img) mi.image = "https://bakehausbykhushi.com/assets/img/" + it.img + "-lg.jpg";
+          if (it.price) mi.offers = { "@type": "Offer", price: String(it.price), priceCurrency: "INR" };
+          mi.suitableForDiet = "https://schema.org/VegetarianDiet";
+          return mi;
+        }) };
+      })
+    };
+    var ld = document.createElement("script");
+    ld.type = "application/ld+json"; ld.textContent = JSON.stringify(menuLd);
+    document.head.appendChild(ld);
   }
 
   renderDate();
