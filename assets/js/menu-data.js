@@ -312,7 +312,7 @@ window.BAKEHAUS = {
   */
   festive: {
     enabled: true,
-    endsAfter: "2026-11-08",
+    endsAfter: "2026-11-01",
     id: "festive",
     festival: "Diwali",
     title: "Diwali hampers",
@@ -322,9 +322,9 @@ window.BAKEHAUS = {
     headline: "Diwali hampers,",
     headlineAccent: "made in-house.",
     bannerTitle: "Diwali hampers are here",
-    bannerText: "Order by 25 October. Hampers from ₹560, with GST bills for corporate gifting.",
+    bannerText: "Order by 1 November. Hampers from ₹560, with GST bills for corporate gifting.",
     bannerButton: "See the hampers",
-    facts: ["Last order date: 25 October", "GST bills for corporate orders", "Beautifully packaged"],
+    facts: ["Last order date: 1 November", "GST bills for corporate orders", "Beautifully packaged"],
     corporate: true,
     corporateText: "Tell us how many hampers you need and your budget, and we'll put together options. GST bills are provided for corporate orders.",
     intro: "Thoughtfully curated Diwali hampers for you and your loved ones. Our signature bestsellers, handcrafted treats and gourmet snacks, all made in-house and beautifully packaged.",
